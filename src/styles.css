@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.ripple {
+  width: 0;
+  height: 0;
+  z-index: 1;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  background-color: #1f60cf;
+  transform: translate(-50%, -50%);
+  animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes explode {
+  to {
+    width: 250px;
+    height: 250px;
+    background-color: #1f60cf00;
+  }
+}

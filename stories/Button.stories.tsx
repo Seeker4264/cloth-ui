@@ -12,7 +12,16 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     disabled: false,
-    text: "Hello World!",
+    text: "Submit",
+    onClick: () => {},
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: "secondary",
+    disabled: false,
+    text: "Submit",
     onClick: () => {},
   },
 };
