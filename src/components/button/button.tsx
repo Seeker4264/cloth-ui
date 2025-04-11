@@ -1,7 +1,7 @@
-import { useRef, MouseEventHandler, useEffect } from "react";
+import { useRef, MouseEventHandler, MouseEvent } from "react";
 import "./../../styles.css";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   disabled: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -14,7 +14,12 @@ export interface ButtonMainProps {
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-const ButtonPrimary = ({ text, disabled, onClick }: ButtonProps) => {
+const ButtonPrimary: React.FC<ButtonProps> = ({
+  text,
+  disabled,
+  onClick,
+  ...props
+}) => {
   return (
     <button
       className="px-5 py-2 text-lg rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
@@ -23,46 +28,56 @@ const ButtonPrimary = ({ text, disabled, onClick }: ButtonProps) => {
       duration-150"
       disabled={disabled}
       onClick={onClick}
+      {...props}
     >
       {text}
     </button>
   );
 };
 
-const ButtonSecondary = ({ text, disabled, onClick }: ButtonProps) => {
+const ButtonSecondary: React.FC<ButtonProps> = ({
+  text,
+  disabled,
+  onClick,
+  ...props
+}) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const rippleEvent = (e: MouseEvent) => {
-      const ripple = document.createElement("div");
-      ripple.classList = "ripple";
-      ripple.style.left = e.offsetX + "px";
-      ripple.style.top = e.offsetY + "px";
-      if (currentElement) {
-        currentElement.appendChild(ripple);
-      }
-      ripple.addEventListener("animationend", () => ripple.remove());
-    };
+  const createRipple = (e: MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
 
-    const currentElement = buttonRef.current;
+    const button = buttonRef.current;
+    if (!button) return;
 
-    if (currentElement)
-      currentElement.addEventListener("mousedown", rippleEvent);
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
 
-    if (currentElement)
-      return () => {
-        currentElement.removeEventListener("click", rippleEvent);
-      };
-  }, []);
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  };
 
   return (
     <button
       className="relative overflow-hidden px-[1.375rem] py-2.5 text-lg rounded-lg cursor-pointer bg-[#447FE4] text-white
       hover:bg-[#498BFF]
+      active:bg-[#2567DA]
       duration-150"
       ref={buttonRef}
       disabled={disabled}
-      onClick={onClick}
+      onClick={createRipple}
+      {...props}
     >
       <span className="relative z-20">{text}</span>
     </button>
