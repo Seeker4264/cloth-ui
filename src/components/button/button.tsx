@@ -49,9 +49,9 @@ export const Button: React.FC<ButtonProps> = ({
 
     circle.style.width = circle.style.height = `${diameter}px`;
     const rippleColor = {
-      primary: "CADAFA",
-      secondary: "1F60CF",
-      secondaryAlt: "7DA0E0",
+      primary: "#CADAFA",
+      secondary: "#1F60CF",
+      secondaryAlt: "#7DA0E0",
     };
     circle.style.backgroundColor = rippleColor[variant];
     circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
