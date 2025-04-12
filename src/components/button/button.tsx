@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export interface ButtonMainProps {
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "secondaryAlt";
   text: string;
   disabled: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -20,17 +20,47 @@ const ButtonPrimary: React.FC<ButtonProps> = ({
   onClick,
   ...props
 }) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const createRipple = (e: MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
+
+    const button = buttonRef.current;
+    if (!button) return;
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.backgroundColor = `#CADAFA`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  };
+
   return (
     <button
-      className="px-5 py-2 text-lg rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
+      className="relative overflow-hidden px-5 py-2 text-lg font-medium rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
       hover:border-[#498BFF] hover:text-[#498BFF] hover:bg-[#E7EEFF]
       active:border-[#144DB1] active:text-[#144DB1] active:bg-[#D5E4FF]
+      disabled:border-[#707070] disabled:bg-[#F0F0F0] disabled:text-[#707070]
       duration-150"
+      ref={buttonRef}
       disabled={disabled}
-      onClick={onClick}
+      onClick={createRipple}
       {...props}
     >
-      {text}
+      <span className="relative z-20">{text}</span>
     </button>
   );
 };
@@ -56,6 +86,7 @@ const ButtonSecondary: React.FC<ButtonProps> = ({
     const radius = diameter / 2;
 
     circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.backgroundColor = `#1F60CF`;
     circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
     circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
     circle.classList.add("ripple");
@@ -70,9 +101,61 @@ const ButtonSecondary: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className="relative overflow-hidden px-[1.375rem] py-2.5 text-lg rounded-lg cursor-pointer bg-[#447FE4] text-white
+      className="relative overflow-hidden px-[1.375rem] py-2.5 text-lg font-medium rounded-lg cursor-pointer bg-[#447FE4] text-white
       hover:bg-[#498BFF]
       active:bg-[#2567DA]
+      disabled:bg-[#707070] disabled:text-[#CCCCCC]
+      duration-150"
+      ref={buttonRef}
+      disabled={disabled}
+      onClick={createRipple}
+      {...props}
+    >
+      <span className="relative z-20">{text}</span>
+    </button>
+  );
+};
+
+const ButtonSecondaryAlt: React.FC<ButtonProps> = ({
+  text,
+  disabled,
+  onClick,
+  ...props
+}) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const createRipple = (e: MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
+
+    const button = buttonRef.current;
+    if (!button) return;
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.backgroundColor = `#7DA0E0`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  };
+
+  return (
+    <button
+      className="relative overflow-hidden px-[1.375rem] py-2.5 text-lg font-medium rounded-full cursor-pointer bg-[#AECBFF] text-[#003EAA]
+      hover:bg-[#9EBFFB]
+      active:bg-[#94B6F5]
+      disabled:bg-[#707070] disabled:text-[#CCCCCC]
       duration-150"
       ref={buttonRef}
       disabled={disabled}
@@ -96,5 +179,10 @@ export const Button = ({
   if (variant == "secondary")
     return (
       <ButtonSecondary text={text} disabled={disabled} onClick={onClick} />
+    );
+
+  if (variant == "secondaryAlt")
+    return (
+      <ButtonSecondaryAlt text={text} disabled={disabled} onClick={onClick} />
     );
 };

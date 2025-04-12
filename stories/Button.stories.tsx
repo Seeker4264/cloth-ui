@@ -25,3 +25,12 @@ export const Secondary: Story = {
     onClick: () => {},
   },
 };
+
+export const SecondaryAlt: Story = {
+  args: {
+    variant: "secondaryAlt",
+    disabled: false,
+    text: "Submit",
+    onClick: () => {},
+  },
+};
