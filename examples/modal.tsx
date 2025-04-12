@@ -3,12 +3,10 @@ import { Button } from "#components/button/index.tsx";
 import { Modal } from "#components/modal/index.tsx";
 
 export interface ModalExampleProps {
-  variant: "primary" | "secondary";
   closeOnBackdropClick?: boolean;
 }
 
 const ModalExample: React.FC<ModalExampleProps> = ({
-  variant = "primary",
   closeOnBackdropClick = true,
 }) => {
   const [showModal, setShowModal] = useState(false);
@@ -18,16 +16,20 @@ const ModalExample: React.FC<ModalExampleProps> = ({
       <Button
         disabled={false}
         text={"Submit"}
-        onClick={() => setShowModal((e) => !e)}
+        onClick={() => setShowModal(true)}
         variant="primary"
       />
       <Modal
-        variant={variant}
         isOpen={showModal}
         closeOnBackdropClick={closeOnBackdropClick}
         onClose={() => setShowModal(false)}
       >
-        <h2>Hello World!</h2>
+        <Button
+          disabled={false}
+          text={"Close Modal"}
+          onClick={() => setShowModal(false)}
+          variant="secondary"
+        />
       </Modal>
     </>
   );

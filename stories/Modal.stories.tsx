@@ -12,9 +12,3 @@ type Story = StoryObj<typeof ModalExample>;
 export const Primary: Story = {
   args: {},
 };
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
