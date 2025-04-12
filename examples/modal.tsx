@@ -24,12 +24,14 @@ const ModalExample: React.FC<ModalExampleProps> = ({
         closeOnBackdropClick={closeOnBackdropClick}
         onClose={() => setShowModal(false)}
       >
-        <Button
-          disabled={false}
-          text={"Close Modal"}
-          onClick={() => setShowModal(false)}
-          variant="secondary"
-        />
+        <div className="grid place-items-center w-[12rem] h-[10rem]">
+          <Button
+            disabled={false}
+            text={"Close Modal"}
+            onClick={() => setShowModal(false)}
+            variant="secondary"
+          />
+        </div>
       </Modal>
     </>
   );

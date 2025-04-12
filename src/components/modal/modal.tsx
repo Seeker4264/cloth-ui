@@ -69,11 +69,11 @@ export const Modal: React.FC<ModalProps> = ({
             initial={animations.container.hidden}
             animate={animations.container.visible}
             exit={animations.container.exit}
-            className="relative bg-[#FFFFFF] shadow-2xl w-[50dvw] h-[60dvh] p-6 rounded-[2rem]"
+            className="relative bg-[#FFFFFF] shadow-2xl min-w-[10rem] w-fit min-h-[8rem] h-fit p-6 rounded-[2rem]"
             onClick={stopPropagation}
           >
             <button
-              className="group absolute right-0 top-0 p-1 m-5 w-fit rounded-full cursor-pointer bg-[#FFFFFF]
+              className="group absolute z-[20] right-0 top-0 p-1 m-5 w-fit rounded-full cursor-pointer bg-[#FFFFFF]
               hover:bg-[#D4E3FF]
               active:bg-[#AECAFF]
               duration-150"
