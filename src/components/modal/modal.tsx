@@ -17,8 +17,8 @@ export const Modal: React.FC<ModalProps> = ({
   children,
 }) => {
   const modalClass = {
-    primary: "bg-blue-300 size-20",
-    secondary: "bg-red-300 size-20",
+    primary: "bg-[#FFFFFF] shadow-2xl w-[50dvw] h-[60dvh] p-5 rounded-[2rem]",
+    secondary: "bg-[#EEEEEE] shadow-2xs w-[50dvw] h-[60dvh] p-5 rounded-[2rem]",
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const Modal: React.FC<ModalProps> = ({
     <>
       {isOpen && (
         <section
-          className="bg-gray-600 p-8 w-fit"
+          className="fixed top-0 left-0 z-[100] w-full h-full flex items-center justify-center backdrop-blur-[8px] bg-[#888888]/65 !mt-0"
           onClick={handleBackdropClick}
         >
           <div className={modalClass[variant]} onClick={stopPropagation}>
