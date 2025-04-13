@@ -11,6 +11,7 @@ type Story = StoryObj<typeof SwitchExample>;
 
 export const Primary: Story = {
   args: {
+    id: "switch",
     disabled: false,
   },
 };
