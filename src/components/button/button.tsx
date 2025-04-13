@@ -1,17 +1,17 @@
 import { useRef, MouseEventHandler, MouseEvent } from "react";
-import "./../../styles.css";
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "primary" | "secondary" | "secondaryAlt";
-  text: string;
-  disabled: boolean;
+  text?: string;
+  disabled?: boolean;
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
-  text,
-  disabled,
+  text = "",
+  disabled = false,
   onClick,
   ...props
 }) => {
@@ -74,7 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={createRipple}
       {...props}
     >
-      <span className="relative z-20">{text}</span>
+      {text && <span className="relative z-20">{text}</span>}
     </button>
   );
 };

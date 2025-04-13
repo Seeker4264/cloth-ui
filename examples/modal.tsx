@@ -24,7 +24,8 @@ const ModalExample: React.FC<ModalExampleProps> = ({
         closeOnBackdropClick={closeOnBackdropClick}
         onClose={() => setShowModal(false)}
       >
-        <div className="grid place-items-center w-[12rem] h-[10rem]">
+        <div className="flex flex-col justify-center items-center gap-5 w-[12rem] h-[10rem]">
+          <h1 className="text-2xl font-semibold mt-4">This is a Modal</h1>
           <Button
             disabled={false}
             text={"Close Modal"}
