@@ -5,13 +5,15 @@ export interface ButtonProps
   variant: "primary" | "secondary" | "secondaryAlt";
   text?: string;
   disabled?: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  buttonType?: "button" | "reset" | "submit";
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   text = "",
   disabled = false,
+  buttonType = "button",
   onClick,
   ...props
 }) => {
@@ -68,6 +70,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      type={buttonType}
       className={buttonClass[variant]}
       ref={buttonRef}
       disabled={disabled}
