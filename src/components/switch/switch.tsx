@@ -18,7 +18,7 @@ export const Switch: React.FC<SwitchProps> = ({
       <input
         id={id}
         type="checkbox"
-        className="group w-0 h-0 hidden"
+        className="group peer w-0 h-0 hidden"
         disabled={disabled}
         checked={checked}
         onChange={onChange}
@@ -26,10 +26,18 @@ export const Switch: React.FC<SwitchProps> = ({
       />
       <label
         htmlFor={id}
-        className={`flex items-center cursor-pointer w-12 h-fit p-1 rounded-full ${checked ? "bg-[#459CFF] group-hover:bg-[#6FB2FF]" : "bg-[#888888] group-hover:bg-[#AAAAAA]"} duration-150`}
+        className={`flex items-center cursor-pointer w-12 h-fit p-1 rounded-full peer-disabled:cursor-default
+        ${
+          checked
+            ? "bg-[#459CFF] peer-hover:bg-[#6FB2FF] peer-disabled:bg-[#6595CB]"
+            : "bg-[#888888] peer-hover:bg-[#AAAAAA] peer-disabled:bg-[#CCC]"
+        }
+        duration-150`}
       >
         <span
-          className={`size-5 rounded-full bg-white group-active:bg-[#EEEEEE] ${checked ? "translate-x-full" : "translate-0"} duration-150 ease-out`}
+          className={`size-5 rounded-full bg-white group-active:bg-[#EEEEEE]
+          ${checked ? "translate-x-full" : "translate-0"}
+          duration-150 ease-out`}
         />
       </label>
     </>
