@@ -20,17 +20,17 @@ export const Button: React.FC<ButtonProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const buttonClass = {
-    primary: `relative overflow-hidden px-5 py-2 text-lg font-medium rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
+    primary: `relative overflow-hidden px-[1.25rem] py-1.5 text-lg font-medium rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
       hover:border-[#498BFF] hover:text-[#498BFF] hover:bg-[#E7EEFF]
       active:border-[#144DB1] active:text-[#144DB1] active:bg-[#D5E4FF]
       disabled:border-[#707070] disabled:bg-[#F0F0F0] disabled:text-[#707070]
       duration-150`,
-    secondary: `relative overflow-hidden px-[1.375rem] py-2.5 text-lg font-medium rounded-lg cursor-pointer bg-[#447FE4] text-white
+    secondary: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-lg cursor-pointer bg-[#447FE4] text-white
       hover:bg-[#498BFF]
       active:bg-[#2567DA]
       disabled:bg-[#707070] disabled:text-[#CCCCCC]
       duration-150`,
-    secondaryAlt: `relative overflow-hidden px-[1.375rem] py-2.5 text-lg font-medium rounded-full cursor-pointer bg-[#AECBFF] text-[#003EAA]
+    secondaryAlt: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-full cursor-pointer bg-[#AECBFF] text-[#003EAA]
       hover:bg-[#9EBFFB]
       active:bg-[#94B6F5]
       disabled:bg-[#707070] disabled:text-[#CCCCCC]

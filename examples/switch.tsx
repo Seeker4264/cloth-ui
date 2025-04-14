@@ -13,7 +13,7 @@ const SwitchExample: React.FC<SwitchExampleProps> = ({
 }) => {
   const [checked, setChecked] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     console.log(checked);
