@@ -2,14 +2,21 @@ import { ReactNode, useRef } from "react";
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
+  submit: () => unknown;
   children: ReactNode;
 }
 
-export const Form: React.FC<FormProps> = ({ id, children, ...props }) => {
+export const Form: React.FC<FormProps> = ({
+  id,
+  children,
+  submit,
+  ...props
+}) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    let invalidations = 0;
 
     const form = formRef.current;
     if (form) {
@@ -24,12 +31,14 @@ export const Form: React.FC<FormProps> = ({ id, children, ...props }) => {
               control.classList.add("border-red-500");
               controlLabel[0].classList.add("text-red-500");
             }
-          } else {
-            console.log(control.value);
+
+            invalidations++;
           }
         }
       }
     }
+
+    if (invalidations === 0) submit();
   };
 
   return (

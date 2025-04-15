@@ -11,8 +11,16 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = () => {
+    console.log("Logged in successfully");
+  };
+
   return (
-    <Form id={id} className="flex flex-col gap-4 w-[20rem]">
+    <Form
+      id={id}
+      className="flex flex-col gap-4 w-[20rem]"
+      submit={handleSubmit}
+    >
       <TextField
         id="username"
         required
