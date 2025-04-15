@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField } from "#components/textField/textField.tsx";
 import { Button } from "#components/button/button.tsx";
+import { Form } from "#components/form/form.tsx";
 
 export interface TextFieldExampleProps {
   id: string;
@@ -20,31 +21,19 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
 }) => {
   const [value, setValue] = useState("");
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-
-    if (value) {
-      console.log(value);
-    } else {
-      console.error("no value");
-    }
-  };
-
   return (
-    <>
-      <form className="flex flex-col gap-4 w-[20rem]" onSubmit={handleSubmit}>
-        <TextField
-          id={id}
-          required={required}
-          variant={variant}
-          label={label}
-          disabled={disabled}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <Button buttonType="submit" text="Submit" variant="secondary" />
-      </form>
-    </>
+    <Form id="myForm" className="flex flex-col gap-4 w-[20rem]">
+      <TextField
+        id={id}
+        required={required}
+        variant={variant}
+        label={label}
+        disabled={disabled}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <Button buttonType="submit" text="Submit" variant="secondary" />
+    </Form>
   );
 };
 

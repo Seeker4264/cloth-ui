@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useRef } from "react";
 
 export interface TextFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -25,6 +25,8 @@ export const TextField: React.FC<TextFieldProps> = ({
   onChange,
   ...props
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const inputClasses = {
     primary: {
       input: `peer px-4 py-2 w-full text-lg outline-none border-2 border-[#999] rounded-lg bg-white
@@ -50,17 +52,32 @@ export const TextField: React.FC<TextFieldProps> = ({
     },
   };
 
+  const handleError = () => {
+    const input = inputRef.current;
+
+    if (input) {
+      const label = input.labels;
+
+      if (label) {
+        input.classList.remove("border-red-500");
+        label[0].classList.remove("text-red-500");
+      }
+    }
+  };
+
   return (
     <>
       <div className="relative">
         <input
           id={id}
+          ref={inputRef}
           required={required}
           type="text"
           className={inputClasses[variant].input}
           disabled={disabled}
           value={value}
           onChange={onChange}
+          onClick={handleError}
           {...props}
         />
         <label htmlFor={id} className={inputClasses[variant].label}>
