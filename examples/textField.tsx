@@ -5,9 +5,10 @@ import { Button } from "#components/button/button.tsx";
 export interface TextFieldExampleProps {
   id: string;
   variant?: "primary" | "secondary";
-  type?: "field" | "box";
+  inputType?: "field" | "box";
   label?: string;
   disabled?: boolean;
+  required?: boolean;
 }
 
 const TextFieldExample: React.FC<TextFieldExampleProps> = ({
@@ -15,30 +16,31 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   variant = "primary",
   label = "Input",
   disabled = false,
+  required = true,
 }) => {
-  const [checked, setChecked] = useState("");
+  const [value, setValue] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    console.log(checked);
+    if (value) {
+      console.log(value);
+    } else {
+      console.error("no value");
+    }
   };
 
   return (
     <>
-      <form
-        className="flex flex-col gap-4 w-[20rem]"
-        onSubmit={handleSubmit}
-        noValidate
-      >
+      <form className="flex flex-col gap-4 w-[20rem]" onSubmit={handleSubmit}>
         <TextField
           id={id}
-          required
+          required={required}
           variant={variant}
           label={label}
           disabled={disabled}
-          value={checked}
-          onChange={(e) => setChecked(e.target.value)}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
         <Button buttonType="submit" text="Submit" variant="secondary" />
       </form>
