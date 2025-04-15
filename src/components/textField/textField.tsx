@@ -59,8 +59,8 @@ export const TextField: React.FC<TextFieldProps> = ({
       const label = input.labels;
 
       if (label) {
-        input.classList.remove("border-red-500");
-        label[0].classList.remove("text-red-500");
+        input.classList.remove("border-red-400");
+        label[0].classList.remove("text-red-400");
       }
     }
   };

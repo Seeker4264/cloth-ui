@@ -27,12 +27,12 @@ export const Form: React.FC<FormProps> = ({
           if (!control.value) {
             const controlLabel = control.labels;
 
-            if (controlLabel) {
-              control.classList.add("border-red-500");
-              controlLabel[0].classList.add("text-red-500");
-            }
+            if (controlLabel && control.required) {
+              control.classList.add("border-red-400");
+              controlLabel[0].classList.add("text-red-400");
 
-            invalidations++;
+              invalidations++;
+            }
           }
         }
       }

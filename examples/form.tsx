@@ -10,6 +10,7 @@ export interface FormExampleProps {
 const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
     console.log("Logged in successfully");
@@ -37,6 +38,15 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
         label="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+      />
+      <TextField
+        id="email"
+        required={false}
+        type="text"
+        variant="primary"
+        label="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <Button buttonType="submit" text="Submit" variant="secondary" />
     </Form>
