@@ -33,7 +33,7 @@ export const Form: React.FC<FormProps> = ({ id, children, ...props }) => {
   };
 
   return (
-    <form id={id} ref={formRef} onSubmit={handleSubmit} {...props}>
+    <form id={id} ref={formRef} onSubmit={handleSubmit} noValidate {...props}>
       {children}
     </form>
   );
