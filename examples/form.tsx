@@ -32,6 +32,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       <TextField
         id="password"
         required
+        type="password"
         variant="primary"
         label="Password"
         value={password}

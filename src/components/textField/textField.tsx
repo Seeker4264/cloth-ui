@@ -4,7 +4,7 @@ export interface TextFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   variant?: "primary" | "secondary";
-  inputType?: "field" | "box";
+  type?: "text" | "password";
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -16,7 +16,7 @@ export interface TextFieldProps
 export const TextField: React.FC<TextFieldProps> = ({
   id,
   variant = "primary",
-  // inputType = "field",
+  type = "text",
   label = "Input",
   disabled = false,
   required = true,
@@ -72,7 +72,7 @@ export const TextField: React.FC<TextFieldProps> = ({
           id={id}
           ref={inputRef}
           required={required}
-          type="text"
+          type={type}
           className={inputClasses[variant].input}
           disabled={disabled}
           value={value}

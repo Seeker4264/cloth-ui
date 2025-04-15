@@ -23,7 +23,8 @@ export const Secondary: Story = {
   args: {
     id: "inputField",
     variant: "secondary",
-    label: "Username",
+    type: "password",
+    label: "Password",
     disabled: false,
     required: true,
   },

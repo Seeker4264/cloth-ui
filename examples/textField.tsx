@@ -6,7 +6,7 @@ import { Form } from "#components/form/form.tsx";
 export interface TextFieldExampleProps {
   id: string;
   variant?: "primary" | "secondary";
-  inputType?: "field" | "box";
+  type?: "text" | "password";
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -15,18 +15,28 @@ export interface TextFieldExampleProps {
 const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   id,
   variant = "primary",
+  type = "text",
   label = "Input",
   disabled = false,
   required = true,
 }) => {
   const [value, setValue] = useState("");
 
+  const handleSubmit = () => {
+    console.log("Logged in successfully");
+  };
+
   return (
-    <Form id="myForm" className="flex flex-col gap-4 w-[20rem]">
+    <Form
+      id="myForm"
+      className="flex flex-col gap-4 w-[20rem]"
+      submit={handleSubmit}
+    >
       <TextField
         id={id}
         required={required}
         variant={variant}
+        type={type}
         label={label}
         disabled={disabled}
         value={value}
