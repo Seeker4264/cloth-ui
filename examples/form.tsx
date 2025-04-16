@@ -12,8 +12,16 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = () => {
-    console.log("Logged in successfully");
+  const handleSubmit = (data: Record<string, string>) => {
+    const keys = Object.keys(data);
+    if (keys.length === 0) return;
+    for (let i = 0; i < keys.length; i += 1) {
+      if (!data[keys[i]]) {
+        return;
+      }
+    }
+
+    console.log("Form submitted with data:", Object.values(data));
   };
 
   return (
@@ -24,7 +32,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
     >
       <TextField
         id="username"
-        name="username"
+        name="Username"
         required
         variant="primary"
         label="Username"
@@ -33,7 +41,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       />
       <TextField
         id="password"
-        name="password"
+        name="Password"
         required
         type="password"
         variant="primary"
@@ -43,7 +51,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       />
       <TextField
         id="email"
-        name="email"
+        name="Email"
         required={false}
         type="text"
         variant="primary"
