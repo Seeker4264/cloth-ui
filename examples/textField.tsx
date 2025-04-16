@@ -22,8 +22,8 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
 }) => {
   const [value, setValue] = useState("");
 
-  const handleSubmit = (data: Record<string, string>) => {
-    console.log("Form submitted with data:", Object.values(data));
+  const handleSubmit = () => {
+    console.log(value);
   };
 
   return (
@@ -41,7 +41,7 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
         label={label}
         disabled={disabled}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onValueChange={setValue}
       />
       <Button buttonType="submit" text="Submit" variant="secondary" />
     </Form>

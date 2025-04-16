@@ -10,7 +10,7 @@ export interface InputProps
   required?: boolean;
   error?: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: React.FC<InputProps> = ({

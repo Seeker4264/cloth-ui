@@ -1,4 +1,11 @@
-import { createContext, Dispatch, ReactNode, useRef, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
@@ -11,7 +18,11 @@ export const FormContext = createContext<{
   setValues: Dispatch<React.SetStateAction<Record<string, string>>>;
   errors: Record<string, string>;
   setErrors: Dispatch<React.SetStateAction<Record<string, string>>>;
-  handleChange: (name: string, value: string) => void;
+  handleChange: (
+    name: string,
+    value: string,
+    onChange: Dispatch<SetStateAction<string>>
+  ) => void;
 }>({
   values: {},
   setValues: () => {},
@@ -30,7 +41,12 @@ export const Form: React.FC<FormProps> = ({
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (name: string, value: string) => {
+  const handleChange = (
+    name: string,
+    value: string,
+    onChange: Dispatch<SetStateAction<string>>
+  ) => {
+    onChange(value);
     setValues((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
