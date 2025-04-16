@@ -1,10 +1,24 @@
-import { ReactNode, useRef } from "react";
+import { createContext, Dispatch, ReactNode, useState } from "react";
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
-  submit: () => unknown;
+  submit: (data: Record<string, string>) => void | Promise<void>;
   children: ReactNode;
 }
+
+export const FormContext = createContext<{
+  values: Record<string, string>;
+  setValues: Dispatch<React.SetStateAction<Record<string, string>>>;
+  errors: Record<string, string>;
+  setErrors: Dispatch<React.SetStateAction<Record<string, string>>>;
+  handleChange: (name: string, value: string) => void;
+}>({
+  values: {},
+  setValues: () => {},
+  errors: {},
+  setErrors: () => {},
+  handleChange: () => {},
+});
 
 export const Form: React.FC<FormProps> = ({
   id,
@@ -12,38 +26,33 @@ export const Form: React.FC<FormProps> = ({
   submit,
   ...props
 }) => {
-  const formRef = useRef<HTMLFormElement>(null);
+  const [values, setValues] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    let invalidations = 0;
+  const handleChange = (name: string, value: string) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
 
-    const form = formRef.current;
-    if (form) {
-      for (let i = 0; i < form.elements.length; i++) {
-        if (form.elements[i].tagName === "INPUT") {
-          const control = form.elements[i] as HTMLInputElement;
-
-          if (!control.value) {
-            const controlLabel = control.labels;
-
-            if (controlLabel && control.required) {
-              control.classList.add("border-red-400");
-              controlLabel[0].classList.add("text-red-400");
-
-              invalidations++;
-            }
-          }
-        }
-      }
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
     }
+  };
 
-    if (invalidations === 0) submit();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    submit(values);
   };
 
   return (
-    <form id={id} ref={formRef} onSubmit={handleSubmit} noValidate {...props}>
-      {children}
-    </form>
+    <FormContext.Provider
+      value={{ values, setValues, errors, setErrors, handleChange }}
+    >
+      <form id={id} onSubmit={handleSubmit} noValidate {...props}>
+        {children}
+      </form>
+    </FormContext.Provider>
   );
 };

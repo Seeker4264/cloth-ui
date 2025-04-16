@@ -12,6 +12,7 @@ type Story = StoryObj<typeof TextFieldExample>;
 export const Primary: Story = {
   args: {
     id: "inputField",
+    name: "input",
     variant: "primary",
     label: "Username",
     disabled: false,
@@ -22,6 +23,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     id: "inputField",
+    name: "input",
     variant: "secondary",
     type: "password",
     label: "Password",

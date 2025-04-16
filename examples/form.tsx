@@ -24,6 +24,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
     >
       <TextField
         id="username"
+        name="username"
         required
         variant="primary"
         label="Username"
@@ -32,6 +33,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       />
       <TextField
         id="password"
+        name="password"
         required
         type="password"
         variant="primary"
@@ -41,6 +43,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       />
       <TextField
         id="email"
+        name="email"
         required={false}
         type="text"
         variant="primary"
