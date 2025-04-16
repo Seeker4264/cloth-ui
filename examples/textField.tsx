@@ -5,7 +5,6 @@ import { Form } from "#components/form/form.tsx";
 
 export interface TextFieldExampleProps {
   id: string;
-  name: string;
   variant?: "primary" | "secondary";
   type?: "text" | "password";
   label?: string;
@@ -15,7 +14,6 @@ export interface TextFieldExampleProps {
 
 const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   id,
-  name = "Input",
   variant = "primary",
   type = "text",
   label = "Input",
@@ -36,7 +34,7 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
     >
       <TextField
         id={id}
-        name={name}
+        name={id}
         required={required}
         variant={variant}
         type={type}

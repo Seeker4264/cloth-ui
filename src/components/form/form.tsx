@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, useState } from "react";
+import { createContext, Dispatch, ReactNode, useRef, useState } from "react";
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
@@ -26,6 +26,7 @@ export const Form: React.FC<FormProps> = ({
   submit,
   ...props
 }) => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [values, setValues] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -43,14 +44,32 @@ export const Form: React.FC<FormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (Object.keys(errors).length === 0) submit(values);
+    let errorsFound = 0;
+
+    if (formRef.current) {
+      const inputs = Array.from(formRef.current.querySelectorAll("input"));
+
+      for (let i = 0; i < inputs.length; i++) {
+        const element = inputs[i];
+
+        if (element.required && element.value === "") {
+          setErrors((prev) => ({
+            ...prev,
+            [element.id]: "This field is required",
+          }));
+          errorsFound++;
+        }
+      }
+    }
+
+    if (Object.keys(errors).length === 0 && errorsFound === 0) submit(values);
   };
 
   return (
     <FormContext.Provider
       value={{ values, setValues, errors, setErrors, handleChange }}
     >
-      <form id={id} onSubmit={handleSubmit} noValidate {...props}>
+      <form id={id} ref={formRef} onSubmit={handleSubmit} noValidate {...props}>
         {children}
       </form>
     </FormContext.Provider>

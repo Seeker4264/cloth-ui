@@ -4,13 +4,11 @@ import { FormContext } from "#components/form/form.tsx";
 import { requiredVal } from "#utils/validations.ts";
 
 export interface TextFieldProps extends InputProps {
-  name: string;
   validation?: (value: string) => string | undefined;
 }
 
 export const TextField: React.FC<TextFieldProps> = ({
   id,
-  name,
   variant = "primary",
   type = "text",
   label = "Input",
@@ -25,7 +23,7 @@ export const TextField: React.FC<TextFieldProps> = ({
     if (validation) {
       const error = validation(e.target.value);
       if (error) {
-        setErrors((prev) => ({ ...prev, [name]: error }));
+        setErrors((prev) => ({ ...prev, [id]: error }));
       }
     }
   };
@@ -39,10 +37,10 @@ export const TextField: React.FC<TextFieldProps> = ({
       label={label}
       disabled={disabled}
       onBlur={handleBlur}
-      error={errors[name]}
+      error={errors[id]}
       {...props}
-      value={values[name] || ""}
-      onChange={(e) => handleChange(name, e.target.value)}
+      value={values[id] || ""}
+      onChange={(e) => handleChange(id, e.target.value)}
     />
   );
 };
