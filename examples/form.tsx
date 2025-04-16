@@ -13,14 +13,6 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (data: Record<string, string>) => {
-    const keys = Object.keys(data);
-    if (keys.length === 0) return;
-    for (let i = 0; i < keys.length; i += 1) {
-      if (!data[keys[i]]) {
-        return;
-      }
-    }
-
     console.log("Form submitted with data:", Object.values(data));
   };
 

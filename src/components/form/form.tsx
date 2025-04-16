@@ -43,7 +43,7 @@ export const Form: React.FC<FormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    submit(values);
+    if (Object.keys(errors).length === 0) submit(values);
   };
 
   return (
