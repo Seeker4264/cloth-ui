@@ -4,7 +4,7 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   variant?: "primary" | "secondary";
-  type?: "text" | "password";
+  type?: "text" | "password" | "number";
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -72,7 +72,7 @@ export const Input: React.FC<InputProps> = ({
         </label>
         {variant === "secondary" && (
           <div
-            className={`relative w-full h-[2px] ${error ? "bg-red-600" : "bg-[#777]"}
+            className={`absolute w-full h-[2px] ${error ? "bg-red-600" : "bg-[#777]"}
             peer-focus:bg-[#498BFF]
             peer-disabled:bg-[#555]
             duration-500`}

@@ -6,7 +6,7 @@ import { Form } from "#components/form/form.tsx";
 export interface TextFieldExampleProps {
   id: string;
   variant?: "primary" | "secondary";
-  type?: "text" | "password";
+  type?: "text" | "password" | "number";
   label?: string;
   disabled?: boolean;
   required?: boolean;
