@@ -15,9 +15,9 @@ export interface TextFieldExampleProps {
 
 const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   id,
-  variant = "primary",
-  type = "text",
-  label = "Input",
+  variant,
+  type,
+  label,
   disabled,
   required,
   readonly,

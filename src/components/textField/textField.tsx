@@ -10,9 +10,9 @@ export interface TextFieldProps extends InputProps {
 
 export const TextField: React.FC<TextFieldProps> = ({
   id,
-  variant = "primary",
-  type = "text",
-  label = "Input",
+  variant,
+  type,
+  label,
   disabled,
   required,
   readOnly,
