@@ -10,6 +10,7 @@ export interface TextFieldExampleProps {
   label?: string;
   disabled?: boolean;
   required?: boolean;
+  readonly?: boolean;
 }
 
 const TextFieldExample: React.FC<TextFieldExampleProps> = ({
@@ -17,8 +18,9 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   variant = "primary",
   type = "text",
   label = "Input",
-  disabled = false,
-  required = true,
+  disabled,
+  required,
+  readonly,
 }) => {
   const [value, setValue] = useState("");
 
@@ -41,6 +43,7 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
         label={label}
         disabled={disabled}
         value={value}
+        readOnly={readonly}
         onValueChange={setValue}
       />
       <Button buttonType="submit" text="Submit" variant="secondary" />

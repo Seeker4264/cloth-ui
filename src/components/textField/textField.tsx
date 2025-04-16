@@ -13,8 +13,9 @@ export const TextField: React.FC<TextFieldProps> = ({
   variant = "primary",
   type = "text",
   label = "Input",
-  disabled = false,
-  required = true,
+  disabled,
+  required,
+  readOnly,
   validation = required ? requiredVal() : () => undefined,
   onValueChange,
   ...props
@@ -38,6 +39,7 @@ export const TextField: React.FC<TextFieldProps> = ({
       type={type}
       label={label}
       disabled={disabled}
+      readOnly={readOnly}
       onBlur={handleBlur}
       error={errors[id]}
       {...props}

@@ -43,7 +43,6 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       />
       <TextField
         id="email"
-        required={false}
         type="text"
         variant="primary"
         label="Email"

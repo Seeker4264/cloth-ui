@@ -15,7 +15,8 @@ export const Primary: Story = {
     variant: "primary",
     label: "Username",
     disabled: false,
-    required: true,
+    required: false,
+    readonly: false,
   },
 };
 
@@ -26,6 +27,7 @@ export const Secondary: Story = {
     type: "password",
     label: "Password",
     disabled: false,
-    required: true,
+    required: false,
+    readonly: false,
   },
 };

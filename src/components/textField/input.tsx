@@ -10,6 +10,7 @@ export interface InputProps
   required?: boolean;
   error?: string;
   value: string;
+  readonly?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -19,7 +20,8 @@ export const Input: React.FC<InputProps> = ({
   type = "text",
   label = "Input",
   disabled = false,
-  required = true,
+  required = false,
+  readOnly = false,
   error,
   value,
   onChange,
@@ -44,6 +46,7 @@ export const Input: React.FC<InputProps> = ({
           duration-150`,
       label: `absolute left-0 top-4 ml-4! ${error ? "text-red-600" : "text-[#777]"} capitalize tracking-wide pointer-events-none
           peer-focus:text-xs peer-focus:-translate-y-2.5 peer-focus:-translate-x-1 peer-focus:px-1 peer-focus:text-[#498BFF]
+          peer-disabled:text-[#555]
           ${value ? "text-xs -translate-y-2.5 -translate-x-1 px-1" : "text-base px-0"}
           duration-150`,
     },
@@ -59,6 +62,7 @@ export const Input: React.FC<InputProps> = ({
           className={inputClasses[variant].input}
           disabled={disabled}
           value={value}
+          readOnly={readOnly}
           onChange={onChange}
           {...props}
         />
@@ -68,8 +72,9 @@ export const Input: React.FC<InputProps> = ({
         </label>
         {variant === "secondary" && (
           <div
-            className={`absolute w-full h-[2px] ${error ? "bg-red-600" : "bg-[#999]"}
+            className={`relative w-full h-[2px] ${error ? "bg-red-600" : "bg-[#777]"}
             peer-focus:bg-[#498BFF]
+            peer-disabled:bg-[#555]
             duration-500`}
           />
         )}
