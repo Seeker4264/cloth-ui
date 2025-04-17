@@ -63,7 +63,7 @@ export const Tabs: React.FC<TabsProps> = ({
             className={`relative select-none flex-shrink-0 self-center text-md font-semibold cursor-pointer
               ${
                 variant === "primary"
-                  ? `md:text-base text-center py-2 px-4 active:bg-[#DDD]`
+                  ? `md:text-base text-center py-2 px-4`
                   : "px-3 py-1 rounded-xl"
               } ${index === activeTab ? "text-[#498BFF]" : "text-gray-700"} ${
                 disabledTabs.includes(index)
@@ -72,7 +72,7 @@ export const Tabs: React.FC<TabsProps> = ({
               }`}
             onClick={() => handleTabClick(index)}
             animate={{
-              backgroundColor: index === activeTab ? "#EEE" : "#FFF",
+              backgroundColor: index === activeTab ? "#EEEEEE" : "#FFF",
               transition: { duration: 0.15 },
             }}
           >
