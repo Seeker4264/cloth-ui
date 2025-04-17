@@ -12,6 +12,12 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
+  const passwordValidation = (length: number) => (value: string) => {
+    if (!value || value.trim() === "") return "This field is required";
+    if (value.length < length) return `Must be at least ${length} characters`;
+    return undefined;
+  };
+
   const handleSubmit = () => {
     console.log(username);
     console.log(password);
@@ -40,6 +46,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
         label="Password"
         value={password}
         onValueChange={setPassword}
+        validation={passwordValidation(8)}
       />
       <TextField
         id="email"
