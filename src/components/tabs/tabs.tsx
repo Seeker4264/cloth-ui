@@ -8,14 +8,12 @@ export interface Tab {
 
 export interface TabsProps {
   tabs: Tab[];
-  variant?: "primary" | "secondary";
   setFilter: (filter: string) => void;
   disabledTabs?: number[];
 }
 
 export const Tabs: React.FC<TabsProps> = ({
   tabs,
-  variant = "primary",
   setFilter,
   disabledTabs = [],
 }) => {
@@ -50,9 +48,7 @@ export const Tabs: React.FC<TabsProps> = ({
   }, [activeTab]);
 
   return (
-    <nav
-      className={`relative w-fit overflow-hidden transition-all duration-150`}
-    >
+    <nav className="relative w-fit overflow-hidden transition-all duration-150">
       <ul
         ref={tabsContainerRef}
         className="flex overflow-x-auto scrollbar-hide"
@@ -61,18 +57,20 @@ export const Tabs: React.FC<TabsProps> = ({
           <motion.li
             key={index}
             className={`relative select-none flex-shrink-0 self-center text-md font-semibold cursor-pointer
-              ${
-                variant === "primary"
-                  ? `md:text-base text-center py-2 px-4`
-                  : "px-3 py-1 rounded-xl"
-              } ${index === activeTab ? "text-[#498BFF]" : "text-gray-700"} ${
-                disabledTabs.includes(index)
-                  ? "opacity-60 cursor-not-allowed"
-                  : ""
-              }`}
+              md:text-base text-center py-2 px-4
+              ${index === activeTab ? "text-[#498BFF]" : "text-gray-700"}
+              ${disabledTabs.includes(index) && "opacity-60 cursor-not-allowed"}`}
             onClick={() => handleTabClick(index)}
             animate={{
-              backgroundColor: index === activeTab ? "#EEEEEE" : "#FFF",
+              backgroundColor: index === activeTab ? "#DEDEDE" : "#FFFFFF",
+              transition: { duration: 0.15 },
+            }}
+            whileHover={{
+              backgroundColor: index === activeTab ? "#DEDEDE" : "#EEEE",
+              transition: { duration: 0.15 },
+            }}
+            whileTap={{
+              backgroundColor: "#CCC",
               transition: { duration: 0.15 },
             }}
           >

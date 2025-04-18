@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Tabs } from "#components/tabs/index.tsx";
 
 export interface TabsExampleProps {
-  variant?: "primary" | "secondary";
   disabledTabs?: number[];
 }
 
-const TabsExample: React.FC<TabsExampleProps> = ({ variant, disabledTabs }) => {
+const TabsExample: React.FC<TabsExampleProps> = ({ disabledTabs }) => {
   const [filter, setFilter] = useState("tab1");
 
   const dataColumns = [
@@ -33,7 +32,6 @@ const TabsExample: React.FC<TabsExampleProps> = ({ variant, disabledTabs }) => {
       <div className="flex flex-col gap-2">
         <Tabs
           tabs={dataColumns}
-          variant={variant}
           setFilter={setFilter}
           disabledTabs={disabledTabs}
         />

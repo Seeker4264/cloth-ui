@@ -9,30 +9,14 @@ const meta: Meta<typeof TabsExample> = {
 export default meta;
 type Story = StoryObj<typeof TabsExample>;
 
-export const Primary: Story = {
+export const Tabs: Story = {
   args: {
-    variant: "primary",
     disabledTabs: [],
   },
 };
 
-export const PrimaryDisabledTab: Story = {
+export const TabsDisabledTab: Story = {
   args: {
-    variant: "primary",
-    disabledTabs: [2],
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    disabledTabs: [],
-  },
-};
-
-export const SecondaryDisabledTab: Story = {
-  args: {
-    variant: "secondary",
     disabledTabs: [2],
   },
 };
