@@ -9,7 +9,7 @@ export interface InputProps
   disabled?: boolean;
   required?: boolean;
   error?: string;
-  value: string;
+  value: string | number;
   readonly?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

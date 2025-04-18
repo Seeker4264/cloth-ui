@@ -21,7 +21,7 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   readonly,
 }) => {
   const handleSubmit = (data: FormValues) => {
-    console.log(data);
+    console.log(data[id], typeof data[id]);
   };
 
   return (
@@ -32,7 +32,6 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
     >
       <TextField
         id={id}
-        name={id}
         required={required}
         variant={variant}
         type={type}

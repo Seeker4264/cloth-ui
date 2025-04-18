@@ -29,6 +29,15 @@ export const TextField: React.FC<TextFieldProps> = ({
     }
   };
 
+  const typeConversion = (function () {
+    switch (type) {
+      case "number":
+        return "number";
+      default:
+        return "string";
+    }
+  })();
+
   return (
     <Input
       id={id}
@@ -41,8 +50,11 @@ export const TextField: React.FC<TextFieldProps> = ({
       onBlur={handleBlur}
       error={errors[id]}
       {...props}
-      value={values[id] || ""}
-      onChange={(e) => handleChange(id, e.target.value)}
+      value={
+        (type === "number" ? (values[id] as number) : (values[id] as string)) ||
+        ""
+      }
+      onChange={(e) => handleChange(id, e.target.value, typeConversion)}
     />
   );
 };

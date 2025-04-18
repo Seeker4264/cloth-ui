@@ -1,20 +1,28 @@
 import { createContext, Dispatch, ReactNode, useRef, useState } from "react";
 
-export type FormValues = Record<string, string>;
+type FormValue = string | number | boolean;
+export type FormValues = Record<string, FormValue>;
+type FormErrors = Record<string, string>;
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
-  submit: (data: Record<string, string>) => void | Promise<void>;
+  submit: (data: FormValues) => void | Promise<void>;
   children: ReactNode;
 }
 
-export const FormContext = createContext<{
-  values: Record<string, string>;
-  setValues: Dispatch<React.SetStateAction<Record<string, string>>>;
-  errors: Record<string, string>;
-  setErrors: Dispatch<React.SetStateAction<Record<string, string>>>;
-  handleChange: (name: string, value: string) => void;
-}>({
+interface FormContextProps {
+  values: FormValues;
+  setValues: Dispatch<React.SetStateAction<FormValues>>;
+  errors: FormErrors;
+  setErrors: Dispatch<React.SetStateAction<FormErrors>>;
+  handleChange: (
+    name: string,
+    value: string,
+    type?: "string" | "number" | "boolean"
+  ) => void;
+}
+
+export const FormContext = createContext<FormContextProps>({
   values: {},
   setValues: () => {},
   errors: {},
@@ -29,11 +37,24 @@ export const Form: React.FC<FormProps> = ({
   ...props
 }) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [values, setValues] = useState<Record<string, string>>({});
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [values, setValues] = useState<FormValues>({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (name: string, value: string) => {
-    setValues((prev) => ({ ...prev, [name]: value }));
+  const handleChange = (name: string, value: string, type = "string") => {
+    let processedValue: FormValue = value;
+
+    switch (type) {
+      case "number":
+        processedValue = value === "" ? "" : Number(value);
+        break;
+      case "boolean":
+        processedValue = Boolean(value);
+        break;
+      default:
+        processedValue = value;
+    }
+
+    setValues((prev) => ({ ...prev, [name]: processedValue }));
 
     if (errors[name]) {
       setErrors((prev) => {

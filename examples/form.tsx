@@ -13,7 +13,10 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   };
 
   const handleSubmit = (data: FormValues) => {
-    console.log(data);
+    console.log(data["username"], typeof data["username"]);
+    console.log(data["password"], typeof data["password"]);
+    console.log(data["age"], typeof data["age"]);
+    console.log(data["email"], typeof data["email"]);
   };
 
   return (
@@ -30,6 +33,13 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
         variant="primary"
         label="Password"
         validation={passwordValidation(8)}
+      />
+      <TextField
+        id="age"
+        required
+        type="number"
+        variant="primary"
+        label="Age"
       />
       <TextField id="email" type="text" variant="primary" label="Email" />
       <Button buttonType="submit" text="Submit" variant="secondary" />
