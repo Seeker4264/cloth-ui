@@ -52,7 +52,6 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
       <div className="space-y-2 absolute overflow-hidden top-5 right-5 flex flex-col items-end">
         <AnimatePresence>
           {toasts.map(({ id, text, type }) => {
-            console.log(type);
             return (
               <motion.div
                 key={id}
