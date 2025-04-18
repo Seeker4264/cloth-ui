@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Switch } from "#components/switch/switch.tsx";
-import { Button } from "#components/button/button.tsx";
+import { Switch, Button } from "#main";
 
 export interface SwitchExampleProps {
   id: string;

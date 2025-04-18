@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tabs } from "#components/tabs/index.tsx";
+import { Tabs } from "#main";
 
 export interface TabsExampleProps {
   disabledTabs?: number[];

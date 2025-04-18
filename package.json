@@ -15,7 +15,8 @@
   "imports": {
     "#components/*": "./src/components/*",
     "#utils/*": "./src/utils/*",
-    "#examples/*": "./examples/*"
+    "#examples/*": "./examples/*",
+    "#main": "./src/index.tsx"
   },
   "peerDependencies": {
     "react": "^19.0.0",

@@ -1,7 +1,5 @@
 import React from "react";
-import { Button } from "#components/button/index.tsx";
-import { ToastProvider } from "#components/toast/index.tsx";
-import { useToast } from "#components/toast/toastContext.tsx";
+import { Button, ToastProvider, useToast } from "#main";
 
 const ToastExampleInner: React.FC = () => {
   const toast = useToast();

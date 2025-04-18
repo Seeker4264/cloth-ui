@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { TextField } from "#components/textField/textField.tsx";
-import { Button } from "#components/button/button.tsx";
-import { Form } from "#components/form/form.tsx";
+import { TextField, Button, Form } from "#main";
 
 export interface TextFieldExampleProps {
   id: string;

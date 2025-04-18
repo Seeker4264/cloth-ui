@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "#components/button/index.tsx";
-import { Modal } from "#components/modal/index.tsx";
+import { Button, Modal } from "#main";
 
 export interface ModalExampleProps {
   closeOnBackdropClick?: boolean;
