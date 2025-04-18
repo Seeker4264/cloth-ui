@@ -10,7 +10,7 @@ const ToastExampleInner: React.FC = () => {
         <Button
           disabled={false}
           text={"Hello World!"}
-          onClick={() => toast.open("Hello World!")}
+          onClick={() => toast.open("This is a toast notification")}
           variant="primary"
         />
         <Button
