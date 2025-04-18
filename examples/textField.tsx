@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { TextField, Button, Form } from "#main";
+import React from "react";
+import { TextField, Button, Form, FormValues } from "#main";
 
 export interface TextFieldExampleProps {
   id: string;
@@ -20,10 +20,8 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
   required,
   readonly,
 }) => {
-  const [value, setValue] = useState("");
-
-  const handleSubmit = () => {
-    console.log(value);
+  const handleSubmit = (data: FormValues) => {
+    console.log(data);
   };
 
   return (
@@ -40,9 +38,7 @@ const TextFieldExample: React.FC<TextFieldExampleProps> = ({
         type={type}
         label={label}
         disabled={disabled}
-        value={value}
         readOnly={readonly}
-        onValueChange={setValue}
       />
       <Button buttonType="submit" text="Submit" variant="secondary" />
     </Form>
