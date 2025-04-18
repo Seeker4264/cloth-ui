@@ -5,12 +5,28 @@ const ToastExampleInner: React.FC = () => {
   const toast = useToast();
 
   return (
-    <Button
-      disabled={false}
-      text={"Submit"}
-      onClick={() => toast.open("Hello World!")}
-      variant="primary"
-    />
+    <>
+      <div className="flex flex-col gap-2 w-48">
+        <Button
+          disabled={false}
+          text={"Hello World!"}
+          onClick={() => toast.open("Hello World!")}
+          variant="primary"
+        />
+        <Button
+          disabled={false}
+          text={"Success"}
+          onClick={() => toast.open("Task completed successfully", "success")}
+          variant="primary"
+        />
+        <Button
+          disabled={false}
+          text={"Failed"}
+          onClick={() => toast.open("Task failed with a fatal error", "error")}
+          variant="primary"
+        />
+      </div>
+    </>
   );
 };
 

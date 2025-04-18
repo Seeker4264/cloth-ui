@@ -1,7 +1,11 @@
 import { createContext, useContext } from "react";
 
 export interface ContextProps {
-  open: (text: string, timeout?: number) => void;
+  open: (
+    text: string,
+    type?: "standard" | "success" | "error",
+    timeout?: number
+  ) => void;
   close: (id: string) => void;
 }
 
