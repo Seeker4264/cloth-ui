@@ -1,4 +1,11 @@
-import { createContext, Dispatch, ReactNode, useRef, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 type FormValue = string | number | boolean;
 export type FormValues = Record<string, FormValue>;
@@ -17,7 +24,7 @@ interface FormContextProps {
   setErrors: Dispatch<React.SetStateAction<FormErrors>>;
   handleChange: (
     name: string,
-    value: string,
+    value: FormValue,
     type?: "string" | "number" | "boolean"
   ) => void;
 }
@@ -40,18 +47,36 @@ export const Form: React.FC<FormProps> = ({
   const [values, setValues] = useState<FormValues>({});
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleChange = (name: string, value: string, type = "string") => {
+  useEffect(() => {
+    if (formRef.current) {
+      const inputs = Array.from(formRef.current.querySelectorAll("input"));
+
+      for (let i = 0; i < inputs.length; i++) {
+        const element = inputs[i];
+
+        switch (element.type) {
+          case "checkbox":
+            setValues((prev) => ({ ...prev, [element.id]: element.checked }));
+            break;
+          default:
+            setValues((prev) => ({ ...prev, [element.id]: element.value }));
+            break;
+        }
+      }
+    }
+  }, []);
+
+  const handleChange = (name: string, value: FormValue, type = "string") => {
     let processedValue: FormValue = value;
 
-    switch (type) {
-      case "number":
-        processedValue = value === "" ? "" : Number(value);
-        break;
-      case "boolean":
-        processedValue = Boolean(value);
-        break;
-      default:
-        processedValue = value;
+    if (typeof value !== "boolean") {
+      switch (type) {
+        case "number":
+          processedValue = value === "" ? "" : Number(value);
+          break;
+        default:
+          processedValue = value;
+      }
     }
 
     setValues((prev) => ({ ...prev, [name]: processedValue }));

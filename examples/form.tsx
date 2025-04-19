@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button, Form, FormValues } from "#main";
+import { TextField, Button, Form, FormValues, Checkbox } from "#main";
 
 export interface FormExampleProps {
   id: string;
@@ -17,6 +17,9 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
     console.log(data["password"], typeof data["password"]);
     console.log(data["age"], typeof data["age"]);
     console.log(data["email"], typeof data["email"]);
+    console.log(data["tos"], typeof data["tos"]);
+    console.log(data["newsletter"], typeof data["newsletter"]);
+    console.log(data);
   };
 
   return (
@@ -42,6 +45,8 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
         label="Age"
       />
       <TextField id="email" type="text" variant="primary" label="Email" />
+      <Checkbox id="tos" label="Accept Terms of Service" />
+      <Checkbox id="newsletter" label="Subscribe to newsletter" />
       <Button buttonType="submit" text="Submit" variant="secondary" />
     </Form>
   );
