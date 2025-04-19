@@ -32,7 +32,7 @@ export const Input: React.FC<InputProps> = ({
             id={id}
             required={required}
             type="checkbox"
-            className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+            className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]"
             disabled={disabled}
             checked={checked}
             readOnly={readOnly}
@@ -49,12 +49,11 @@ export const Input: React.FC<InputProps> = ({
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              {" "}
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </span>
         </label>
-        <p className="text-base font-medium text-gray-900">{label}</p>
+        <p className="text-base font-medium text-[#555]">{label}</p>
       </div>
     </>
   );
