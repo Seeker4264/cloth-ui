@@ -5,3 +5,4 @@ export * from "./components/textField";
 export * from "./components/form";
 export * from "./components/tabs";
 export * from "./components/toast";
+export * from "./components/checkbox";
