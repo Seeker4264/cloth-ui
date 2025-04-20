@@ -1,18 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "#components/button/index.tsx";
+import ButtonExample from "#examples/button.tsx";
 
-const meta: Meta<typeof Button> = {
-  component: Button,
+const meta: Meta<typeof ButtonExample> = {
+  component: ButtonExample,
 };
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof ButtonExample>;
 
 export const Primary: Story = {
   args: {
+    variant: "primary",
     disabled: false,
     text: "Submit",
+    icon: false,
+    iconPosition: "left",
     onClick: () => {},
   },
 };
@@ -22,6 +25,8 @@ export const Secondary: Story = {
     variant: "secondary",
     disabled: false,
     text: "Submit",
+    icon: false,
+    iconPosition: "left",
     onClick: () => {},
   },
 };
@@ -31,6 +36,8 @@ export const SecondaryAlt: Story = {
     variant: "secondaryAlt",
     disabled: false,
     text: "Submit",
+    icon: false,
+    iconPosition: "left",
     onClick: () => {},
   },
 };
