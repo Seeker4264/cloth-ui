@@ -1,9 +1,11 @@
-import { useRef, MouseEventHandler, MouseEvent } from "react";
+import { useRef, MouseEventHandler, MouseEvent, ReactNode } from "react";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: "primary" | "secondary" | "secondaryAlt";
   text?: string;
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
   disabled?: boolean;
   buttonType?: "button" | "reset" | "submit";
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -12,6 +14,8 @@ export interface ButtonProps
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   text = "",
+  icon,
+  iconPosition = "left",
   disabled = false,
   buttonType = "button",
   onClick,
@@ -35,6 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
       active:bg-[#94B6F5]
       disabled:bg-[#707070] disabled:text-[#CCCCCC]
       duration-150`,
+  };
+
+  const iconClass = {
+    primary: `text-[#2C6DE0] group-hover:text-[#498BFF] group-active:text-[#144DB1] group-disabled:text-[#707070]`,
+    secondary: `text-white group-disabled:text-[#CCCCCC]`,
+    secondaryAlt: `text-[#003EAA] group-disabled:text-[#CCCCCC]`,
   };
 
   const createRipple = (e: MouseEvent<HTMLButtonElement>) => {
@@ -71,13 +81,23 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={buttonType}
-      className={buttonClass[variant]}
+      className={`group flex flex-row gap-2 justify-center items-center ${buttonClass[variant]}`}
       ref={buttonRef}
       disabled={disabled}
       onClick={createRipple}
       {...props}
     >
+      {icon && iconPosition === "left" && (
+        <span className={`relative z-20 ${iconClass[variant]} duration-150`}>
+          {icon}
+        </span>
+      )}
       {text && <span className="relative z-20">{text}</span>}
+      {icon && iconPosition === "right" && (
+        <span className={`relative z-20 ${iconClass[variant]} duration-150`}>
+          {icon}
+        </span>
+      )}
     </button>
   );
 };
