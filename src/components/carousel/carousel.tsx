@@ -1,6 +1,6 @@
 import { Children, ReactNode, useEffect, useState } from "react";
 
-interface CarouselProps {
+export interface CarouselProps {
   children: ReactNode;
   autoSlide?: boolean;
   autoSlideInterval?: number;
