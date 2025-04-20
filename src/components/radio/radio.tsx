@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Input, InputProps } from "./input";
-import { FormContext } from "#components/form/form.tsx";
+import { FormContext } from "../../components/form/form.tsx";
 
 export const Radio: React.FC<Omit<InputProps, "checked">> = ({
   id,
