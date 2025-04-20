@@ -30,15 +30,15 @@ export const Input: React.FC<InputProps> = ({
       <div className="flex flex-row items-center gap-2">
         <label
           htmlFor={id}
-          className="flex items-center cursor-pointer relative p-1"
+          className="flex items-center cursor-pointer relative p-1 m-0.5"
         >
           <input
             id={id}
             required={required}
             type="radio"
             className="peer size-4 cursor-pointer transition-all appearance-none rounded-full shadow hover:shadow-md border border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]
-            checked:ring-blue-500 checked:ring-2 checked:ring-offset-1
-            focus:ring-blue-500 focus:ring-2 focus:ring-offset-1"
+            checked:ring-blue-500 checked:ring-2 checked:ring-offset-2
+            focus:ring-blue-500 focus:ring-2 focus:ring-offset-2"
             disabled={disabled}
             value={value}
             name={name}
