@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, Button, Form, FormValues } from "#main";
 
-export interface TextFieldExampleProps {
+interface TextFieldExampleProps {
   id: string;
   variant?: "primary" | "secondary";
   type?: "text" | "password" | "number";

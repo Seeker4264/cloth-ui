@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, Button, Form, FormValues, Checkbox, Radio } from "#main";
 
-export interface FormExampleProps {
+interface FormExampleProps {
   id: string;
 }
 

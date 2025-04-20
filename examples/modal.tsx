@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "#main";
 
-export interface ModalExampleProps {
+interface ModalExampleProps {
   closeOnBackdropClick?: boolean;
 }
 

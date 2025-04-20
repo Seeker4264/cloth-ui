@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Switch, Button } from "#main";
 
-export interface SwitchExampleProps {
+interface SwitchExampleProps {
   id: string;
   disabled?: boolean;
 }
