@@ -7,3 +7,4 @@ export * from "./components/tabs";
 export * from "./components/toast";
 export * from "./components/checkbox";
 export * from "./components/radio";
+export * from "./components/carousel";
