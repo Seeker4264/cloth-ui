@@ -39,7 +39,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
       transition: {
         duration: 0.2,
         type: "spring",
-        damping: 33,
+        damping: 30,
         stiffness: 500,
       },
     },
