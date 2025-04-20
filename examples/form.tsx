@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button, Form, FormValues, Checkbox } from "#main";
+import { TextField, Button, Form, FormValues, Checkbox, Radio } from "#main";
 
 export interface FormExampleProps {
   id: string;
@@ -19,6 +19,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
     console.log(data["email"], typeof data["email"]);
     console.log(data["tos"], typeof data["tos"]);
     console.log(data["newsletter"], typeof data["newsletter"]);
+    console.log(data["settings"], typeof data["settings"]);
     console.log(data);
   };
 
@@ -47,6 +48,18 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
       <TextField id="email" type="text" variant="primary" label="Email" />
       <Checkbox id="tos" label="Accept Terms of Service" />
       <Checkbox id="newsletter" label="Subscribe to newsletter" />
+      <Radio
+        id="radio1"
+        label="Use default settings for the account"
+        value="default"
+        name="settings"
+      />
+      <Radio
+        id="radio2"
+        label="Customize settings"
+        value="custom"
+        name="settings"
+      />
       <Button buttonType="submit" text="Submit" variant="secondary" />
     </Form>
   );
