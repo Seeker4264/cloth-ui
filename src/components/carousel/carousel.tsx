@@ -1,4 +1,4 @@
-import { Children, ReactNode, useEffect, useState } from "react";
+import { Children, ReactNode, useEffect, useRef, useState } from "react";
 
 export interface CarouselProps {
   children: ReactNode;
@@ -14,6 +14,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = Children.toArray(children);
   const totalSlides = slides.length;
+  const lButtonRef = useRef<HTMLButtonElement>(null);
+  const rButtonRef = useRef<HTMLButtonElement>(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
@@ -37,10 +39,38 @@ export const Carousel: React.FC<CarouselProps> = ({
     return () => clearInterval(slideInterval);
   }, [autoSlide, autoSlideInterval, currentSlide, totalSlides]);
 
+  const createRipple = (
+    buttonReference: React.RefObject<HTMLButtonElement | null>,
+    onClick: () => void
+  ) => {
+    if (onClick) {
+      onClick();
+    }
+
+    const button = buttonReference.current;
+    if (!button) return;
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.backgroundColor = "#00000088";
+    circle.style.left = `0px`;
+    circle.style.top = `0px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  };
+
   return (
     <div className="relative overflow-hidden rounded-lg">
       <div
-        className="flex transition-transform duration-500 ease-in-out"
+        className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
@@ -51,15 +81,16 @@ export const Carousel: React.FC<CarouselProps> = ({
       </div>
 
       <button
-        onClick={prevSlide}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
+        ref={lButtonRef}
+        onClick={() => createRipple(lButtonRef, prevSlide)}
+        className="absolute overflow-hidden left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
         hover:bg-black/50 focus:outline-none
         active:bg-black/70
         duration-150"
         aria-label="Previous slide"
       >
         <svg
-          className="size-6 text-white"
+          className="relative z-20 size-6 text-white"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -71,15 +102,16 @@ export const Carousel: React.FC<CarouselProps> = ({
         </svg>
       </button>
       <button
-        onClick={nextSlide}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
+        ref={rButtonRef}
+        onClick={() => createRipple(rButtonRef, nextSlide)}
+        className="absolute overflow-hidden right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
         hover:bg-black/50 focus:outline-none
         active:bg-black/70
         duration-150"
         aria-label="Next slide"
       >
         <svg
-          className="size-6 text-white"
+          className="relative z-20 size-6 text-white"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
