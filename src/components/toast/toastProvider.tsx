@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import ToastContext from "./toastContext";
 import { AnimatePresence, motion } from "motion/react";
 

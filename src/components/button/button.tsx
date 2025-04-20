@@ -1,4 +1,4 @@
-import { useRef, MouseEventHandler, MouseEvent, ReactNode } from "react";
+import React, { useRef, MouseEventHandler, MouseEvent, ReactNode } from "react";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
