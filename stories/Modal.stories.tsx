@@ -10,5 +10,7 @@ export default meta;
 type Story = StoryObj<typeof ModalExample>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    dark: false,
+  },
 };

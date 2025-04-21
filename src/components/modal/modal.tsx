@@ -62,26 +62,26 @@ export const Modal: React.FC<ModalProps> = ({
           initial={animations.overlay.hidden}
           animate={animations.overlay.visible}
           exit={animations.overlay.exit}
-          className="fixed top-0 left-0 z-[100] w-full h-full flex items-center justify-center backdrop-blur-[4px] bg-[#888888]/65 !mt-0"
+          className="fixed top-0 left-0 z-[100] w-full h-full flex items-center justify-center backdrop-blur-[4px] bg-[#888888]/65 dark:bg-[#222222]/65 !mt-0"
           onClick={handleBackdropClick}
         >
           <motion.div
             initial={animations.container.hidden}
             animate={animations.container.visible}
             exit={animations.container.exit}
-            className="relative bg-[#FFFFFF] shadow-2xl min-w-[10rem] w-fit min-h-[8rem] h-fit p-6 rounded-[2rem]"
+            className="relative bg-[#FFFFFF] dark:bg-[#383E4E] shadow-2xl min-w-[10rem] w-fit min-h-[8rem] h-fit p-6 rounded-[2rem]"
             onClick={stopPropagation}
           >
             <button
-              className="group absolute z-[20] right-0 top-0 p-1 m-5 w-fit rounded-full cursor-pointer bg-[#FFFFFF]
-              hover:bg-[#D4E3FF]
-              active:bg-[#AECAFF]
+              className="group absolute z-[20] right-0 top-0 p-1 m-5 w-fit rounded-full cursor-pointer bg-[#FFFFFF] dark:bg-[#383E4E]
+              hover:bg-[#D4E3FF] dark:hover:bg-[#3E4D81]
+              active:bg-[#AECAFF] dark:active:bg-[#3c4f90]
               duration-150"
               onClick={handleBackdropClick}
             >
               <svg
-                className="size-7 text-[#333333]
-                group-hover:text-[#003EAA]
+                className="size-7 text-[#333333] dark:text-white
+                group-hover:text-[#003EAA] dark:group-hover:text-[#78A6F6]
                 duration-150"
                 viewBox="0 0 24 24"
                 fill="none"
