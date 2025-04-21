@@ -60,7 +60,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
                 rounded-lg border-2
                 ${type === "standard" && "border-[#3380EC] bg-[#F1F9FFCC]"}
                 ${type === "success" && "border-[#3AB37C] bg-[#F1FFF1CC]"}
-                ${type === "error" && "border-[#EC3333] bg-[#FFF1F1AA]"}`}
+                ${type === "error" && "border-[#EC3333] bg-[#FFF1F1CC]"}`}
                 initial={animations.hidden}
                 animate={animations.visible}
                 exit={animations.exit}
