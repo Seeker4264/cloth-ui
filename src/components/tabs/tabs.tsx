@@ -61,7 +61,7 @@ export const Tabs: React.FC<TabsProps> = ({
               ${
                 index === activeTab
                   ? "text-[#498BFF] bg-[#DEDEDE] dark:text-[#78AAFF] dark:bg-[#444444]"
-                  : "text-gray-700 bg-[#FFFFFF] dark:text-white dark:bg-[#333]"
+                  : "text-gray-700 bg-inherit dark:text-white dark:bg-inherit"
               }
               active:bg-[#CCC] dark:active:bg-[#666666]
               ${disabledTabs.includes(index) && "opacity-55 cursor-not-allowed"}

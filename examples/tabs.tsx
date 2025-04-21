@@ -33,7 +33,9 @@ const TabsExample: React.FC<TabsExampleProps> = ({
 
   return (
     <>
-      <div className={`${dark ? "dark" : ""} flex flex-col gap-2`}>
+      <div
+        className={`${dark ? "dark" : ""} flex flex-col gap-2 w-fit bg-white dark:bg-[#333]`}
+      >
         <Tabs
           tabs={dataColumns}
           setFilter={setFilter}
