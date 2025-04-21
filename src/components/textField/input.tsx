@@ -31,7 +31,7 @@ export const Input: React.FC<InputProps> = ({
     primary: {
       input: `peer px-4 py-3 w-full text-lg outline-none border-2 text-[#333] dark:text-white
           ${error ? "border-red-600" : "border-[#999]"} rounded-lg
-          bg-inherit
+          bg-inherit autofill-style-remove
           focus:border-[#498BFF]
           disabled:bg-[#DDD]
           duration-150`,
@@ -44,7 +44,7 @@ export const Input: React.FC<InputProps> = ({
     },
     secondary: {
       input: `peer px-4 pb-1.5 pt-[22px] w-full text-base outline-none rounded-t-lg border-2 text-[#333] dark:text-white
-          border-[#DDD] bg-[#DDD] dark:border-[#555] dark:bg-[#555]
+          border-[#DDD] bg-[#DDD] dark:border-[#555] dark:bg-[#555] autofill-style-remove
           disabled:bg-[#BBB] disabled:border-[#BBB]
           duration-150`,
       label: `absolute left-0 top-4 ml-4! ${error ? "text-red-600" : "text-[#777] dark:text-[#AAA]"} capitalize tracking-wide pointer-events-none
