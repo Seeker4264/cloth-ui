@@ -31,8 +31,8 @@ export const Switch: React.FC<SwitchProps> = ({
         className={`flex items-center cursor-pointer w-12 h-fit p-1 rounded-full peer-disabled:cursor-default
         ${
           checked
-            ? "bg-[#459CFF] peer-hover:bg-[#6FB2FF] peer-disabled:bg-[#6595CB]"
-            : "bg-[#888888] peer-hover:bg-[#AAAAAA] peer-disabled:bg-[#CCC]"
+            ? "bg-[#2d9ce6] peer-hover:bg-[#47aaeb] peer-disabled:bg-[#7CA2BC] dark:bg-[#459CFF] dark:peer-hover:bg-[#62a9fa] dark:peer-disabled:bg-[#6595CB]"
+            : "bg-[#888888] peer-hover:bg-[#999999] peer-disabled:bg-[#555] dark:bg-[#555555] dark:peer-hover:bg-[#777777] dark:peer-disabled:bg-[#222]"
         }
         duration-150`}
       >
