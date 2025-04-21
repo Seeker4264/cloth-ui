@@ -56,7 +56,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
               <motion.div
                 key={id}
                 id={id}
-                className={`flex flex-row justify-between items-stretch gap-2 m-2 min-w-[10rem] w-fit max-w-[24rem] min-h-[1.5rem] h-fit
+                className={`flex flex-row justify-between items-stretch gap-2 z-[9999] m-2 min-w-[10rem] w-fit max-w-[24rem] min-h-[1.5rem] h-fit
                 rounded-lg border-2
                 ${type === "standard" && "border-[#3380EC] bg-[#F1F9FFCC]"}
                 ${type === "success" && "border-[#3AB37C] bg-[#F1FFF1CC]"}
