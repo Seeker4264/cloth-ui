@@ -32,7 +32,8 @@ export const Input: React.FC<InputProps> = ({
             id={id}
             required={required}
             type="checkbox"
-            className="peer size-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]"
+            className="peer size-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border
+            border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]"
             disabled={disabled}
             checked={checked}
             readOnly={readOnly}
@@ -53,7 +54,9 @@ export const Input: React.FC<InputProps> = ({
             </svg>
           </span>
         </label>
-        <p className="text-base font-medium text-[#333]">{label}</p>
+        <p className="text-base font-medium text-[#333] dark:text-white">
+          {label}
+        </p>
       </div>
     </>
   );

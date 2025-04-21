@@ -12,5 +12,6 @@ type Story = StoryObj<typeof FormExample>;
 export const Primary: Story = {
   args: {
     id: "myForm",
+    dark: false,
   },
 };

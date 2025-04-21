@@ -3,9 +3,10 @@ import { TextField, Button, Form, FormValues, Checkbox, Radio } from "#main";
 
 interface FormExampleProps {
   id: string;
+  dark?: boolean;
 }
 
-const FormExample: React.FC<FormExampleProps> = ({ id }) => {
+const FormExample: React.FC<FormExampleProps> = ({ id, dark = false }) => {
   const passwordValidation = (length: number) => (value: string) => {
     if (!value || value.trim() === "") return "This field is required";
     if (value.length < length) return `Must be at least ${length} characters`;
@@ -26,7 +27,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id }) => {
   return (
     <Form
       id={id}
-      className="flex flex-col gap-4 w-[20rem]"
+      className={`${dark ? "dark" : ""} flex flex-col gap-4 w-[20rem] p-5 bg-white dark:bg-[#333]`}
       submit={handleSubmit}
     >
       <TextField id="username" required variant="primary" label="Username" />

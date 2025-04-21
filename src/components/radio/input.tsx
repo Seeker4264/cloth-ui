@@ -36,7 +36,8 @@ export const Input: React.FC<InputProps> = ({
             id={id}
             required={required}
             type="radio"
-            className="peer size-4 cursor-pointer transition-all appearance-none rounded-full shadow hover:shadow-md border border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]
+            className="peer size-4 cursor-pointer transition-all appearance-none rounded-full shadow hover:shadow-md border
+            border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]
             checked:ring-blue-500 checked:ring-2 checked:ring-offset-2
             focus:ring-blue-500 focus:ring-2 focus:ring-offset-2"
             disabled={disabled}
@@ -48,7 +49,9 @@ export const Input: React.FC<InputProps> = ({
             {...props}
           />
         </label>
-        <p className="text-base font-medium text-[#333]">{label}</p>
+        <p className="text-base font-medium text-[#333] dark:text-white">
+          {label}
+        </p>
       </div>
     </>
   );
