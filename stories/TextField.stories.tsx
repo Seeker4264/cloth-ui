@@ -13,6 +13,7 @@ export const PrimaryText: Story = {
   args: {
     id: "inputField",
     variant: "primary",
+    dark: false,
     label: "Username",
     disabled: false,
     required: false,
@@ -24,6 +25,7 @@ export const SecondaryText: Story = {
   args: {
     id: "inputField",
     variant: "secondary",
+    dark: false,
     label: "Username",
     disabled: false,
     required: false,
@@ -35,6 +37,7 @@ export const PrimaryPassword: Story = {
   args: {
     id: "inputField",
     variant: "primary",
+    dark: false,
     type: "password",
     label: "Password",
     disabled: false,
@@ -47,6 +50,7 @@ export const SecondaryPassword: Story = {
   args: {
     id: "inputField",
     variant: "secondary",
+    dark: false,
     type: "password",
     label: "Password",
     disabled: false,
@@ -59,6 +63,7 @@ export const PrimaryNumber: Story = {
   args: {
     id: "inputField",
     variant: "primary",
+    dark: false,
     type: "number",
     label: "Amount",
     disabled: false,
@@ -71,6 +76,7 @@ export const SecondaryNumber: Story = {
   args: {
     id: "inputField",
     variant: "secondary",
+    dark: false,
     type: "number",
     label: "Amount",
     disabled: false,
