@@ -24,17 +24,20 @@ export const Button: React.FC<ButtonProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const buttonClass = {
-    primary: `relative overflow-hidden px-[1.25rem] py-1.5 text-lg font-medium rounded-lg cursor-pointer bg-white border-2 border-[#2C6DE0] text-[#2C6DE0]
-      hover:border-[#498BFF] hover:text-[#498BFF] hover:bg-[#E7EEFF]
-      active:border-[#144DB1] active:text-[#144DB1] active:bg-[#D5E4FF]
-      disabled:border-[#707070] disabled:bg-[#F0F0F0] disabled:text-[#707070]
+    primary: `relative overflow-hidden px-[1.25rem] py-1.5 text-lg font-medium rounded-lg cursor-pointer
+      bg-white dark:bg-transparent border-2 border-[#2C6DE0] text-[#2C6DE0] dark:border-[#68A0FF] dark:text-[#68A0FF]
+      hover:border-[#498BFF] hover:text-[#498BFF] dark:hover:border-[#86B3FF] dark:hover:text-[#86B3FF] hover:bg-[#E7EEFF] dark:hover:bg-[#1756C444]
+      active:border-[#144DB1] active:text-[#144DB1] active:bg-[#D5E4FF] dark:active:border-[#1F5ECB] dark:active:text-[#1F5ECB]
+      disabled:border-[#707070] disabled:bg-[#F0F0F0] disabled:text-[#707070] dark:disabled:bg-transparent
       duration-150`,
-    secondary: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-lg cursor-pointer bg-[#447FE4] text-white
+    secondary: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-lg cursor-pointer
+      bg-[#447FE4] text-white
       hover:bg-[#498BFF]
       active:bg-[#2567DA]
       disabled:bg-[#707070] disabled:text-[#CCCCCC]
       duration-150`,
-    secondaryAlt: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-full cursor-pointer bg-[#AECBFF] text-[#003EAA]
+    secondaryAlt: `relative overflow-hidden px-[1.375rem] py-2 text-lg font-medium rounded-full cursor-pointer
+      bg-[#AECBFF] text-[#003EAA]
       hover:bg-[#9EBFFB]
       active:bg-[#94B6F5]
       disabled:bg-[#707070] disabled:text-[#CCCCCC]
@@ -42,7 +45,8 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const iconClass = {
-    primary: `text-[#2C6DE0] group-hover:text-[#498BFF] group-active:text-[#144DB1] group-disabled:text-[#707070]`,
+    primary: `text-[#2C6DE0] group-hover:text-[#498BFF] group-active:text-[#144DB1] group-disabled:text-[#707070]
+    dark:text-[#68A0FF] dark:group-hover:text-[#86B3FF] dark:group-active:text-[#1F5ECB]`,
     secondary: `text-white group-disabled:text-[#CCCCCC]`,
     secondaryAlt: `text-[#003EAA] group-disabled:text-[#CCCCCC]`,
   };
@@ -61,7 +65,7 @@ export const Button: React.FC<ButtonProps> = ({
 
     circle.style.width = circle.style.height = `${diameter}px`;
     const rippleColor = {
-      primary: "#CADAFA",
+      primary: "#498BFF66",
       secondary: "#1F60CF",
       secondaryAlt: "#7DA0E0",
     };

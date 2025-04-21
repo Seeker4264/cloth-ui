@@ -12,6 +12,7 @@ type Story = StoryObj<typeof ButtonExample>;
 export const Primary: Story = {
   args: {
     variant: "primary",
+    dark: false,
     disabled: false,
     text: "Submit",
     icon: false,
@@ -23,6 +24,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: "secondary",
+    dark: false,
     disabled: false,
     text: "Submit",
     icon: false,
@@ -34,6 +36,7 @@ export const Secondary: Story = {
 export const SecondaryAlt: Story = {
   args: {
     variant: "secondaryAlt",
+    dark: false,
     disabled: false,
     text: "Submit",
     icon: false,
