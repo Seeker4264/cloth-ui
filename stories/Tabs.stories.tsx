@@ -11,12 +11,14 @@ type Story = StoryObj<typeof TabsExample>;
 
 export const Tabs: Story = {
   args: {
+    dark: false,
     disabledTabs: [],
   },
 };
 
 export const TabsDisabledTab: Story = {
   args: {
+    dark: false,
     disabledTabs: [2],
   },
 };

@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Tabs } from "#main";
 
 interface TabsExampleProps {
+  dark?: boolean;
   disabledTabs?: number[];
 }
 
-const TabsExample: React.FC<TabsExampleProps> = ({ disabledTabs }) => {
+const TabsExample: React.FC<TabsExampleProps> = ({
+  disabledTabs,
+  dark = false,
+}) => {
   const [filter, setFilter] = useState("tab1");
 
   const dataColumns = [
@@ -17,11 +21,11 @@ const TabsExample: React.FC<TabsExampleProps> = ({ disabledTabs }) => {
   const renderContent = () => {
     switch (filter) {
       case "tab1":
-        return <div>Tab example 1</div>;
+        return <div className="text-[#333] dark:text-white">Tab example 1</div>;
       case "tab2":
-        return <div>Tab example 2</div>;
+        return <div className="text-[#333] dark:text-white">Tab example 2</div>;
       case "tab3":
-        return <div>Tab example 3</div>;
+        return <div className="text-[#333] dark:text-white">Tab example 3</div>;
       default:
         return null;
     }
@@ -29,7 +33,9 @@ const TabsExample: React.FC<TabsExampleProps> = ({ disabledTabs }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <div
+        className={`${dark ? "dark" : ""} flex flex-col gap-2 w-fit bg-white dark:bg-[#333]`}
+      >
         <Tabs
           tabs={dataColumns}
           setFilter={setFilter}

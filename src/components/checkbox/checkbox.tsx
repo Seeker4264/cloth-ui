@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Input, InputProps } from "./input";
-import { FormContext } from "#components/form/form.tsx";
+import { FormContext } from "../../components/form/form.tsx";
 
 export const Checkbox: React.FC<Omit<InputProps, "checked">> = ({
   id,

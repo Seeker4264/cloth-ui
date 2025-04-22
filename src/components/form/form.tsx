@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   Dispatch,
   ReactNode,
@@ -7,9 +7,9 @@ import {
   useState,
 } from "react";
 
-type FormValue = string | number | boolean;
+export type FormValue = string | number | boolean;
 export type FormValues = Record<string, FormValue>;
-type FormErrors = Record<string, string>;
+export type FormErrors = Record<string, string>;
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   id: string;
@@ -17,7 +17,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
 }
 
-interface FormContextProps {
+export interface FormContextProps {
   values: FormValues;
   setValues: Dispatch<React.SetStateAction<FormValues>>;
   errors: FormErrors;

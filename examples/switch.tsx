@@ -4,11 +4,13 @@ import { Switch, Button } from "#main";
 interface SwitchExampleProps {
   id: string;
   disabled?: boolean;
+  dark?: boolean;
 }
 
 const SwitchExample: React.FC<SwitchExampleProps> = ({
   id,
   disabled = false,
+  dark = false,
 }) => {
   const [checked, setChecked] = useState(false);
 
@@ -20,7 +22,10 @@ const SwitchExample: React.FC<SwitchExampleProps> = ({
 
   return (
     <>
-      <form className="flex flex-col gap-4 w-fit" onSubmit={handleSubmit}>
+      <form
+        className={`flex flex-col gap-4 w-fit ${dark ? "dark" : ""}`}
+        onSubmit={handleSubmit}
+      >
         <Switch
           id={id}
           disabled={disabled}

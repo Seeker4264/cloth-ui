@@ -1,8 +1,17 @@
 {
   "name": "cloth-ui",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
+  "description": "React library that implements various types of components, with custom parameters and styles.",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "author": "Seeker4264",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -12,6 +21,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Seeker4264/cloth-ui.git"
+  },
   "imports": {
     "#components/*": "./src/components/*",
     "#utils/*": "./src/utils/*",
@@ -19,9 +32,9 @@
     "#main": "./src/index.tsx"
   },
   "peerDependencies": {
+    "motion": "^12.6.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "motion": "^12.6.5"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -33,6 +46,7 @@
     "@storybook/react-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@tailwindcss/vite": "^4.1.3",
+    "@types/node": "^22.14.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
@@ -51,6 +65,9 @@
     "tailwindcss": "^4.1.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

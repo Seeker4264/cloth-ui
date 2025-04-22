@@ -3,6 +3,7 @@ import React, { MouseEventHandler } from "react";
 
 interface ButtonExampleProps {
   variant: "primary" | "secondary" | "secondaryAlt";
+  dark?: boolean;
   text?: string;
   icon?: boolean;
   iconPosition?: "left" | "right";
@@ -13,6 +14,7 @@ interface ButtonExampleProps {
 
 const ButtonExample: React.FC<ButtonExampleProps> = ({
   variant,
+  dark = false,
   text,
   icon = false,
   iconPosition,
@@ -35,15 +37,17 @@ const ButtonExample: React.FC<ButtonExampleProps> = ({
   ) : null;
 
   return (
-    <Button
-      variant={variant}
-      text={text}
-      icon={iconExample}
-      iconPosition={iconPosition}
-      disabled={disabled}
-      buttonType={buttonType}
-      onClick={onClick}
-    />
+    <div className={dark ? "dark" : ""}>
+      <Button
+        variant={variant}
+        text={text}
+        icon={iconExample}
+        iconPosition={iconPosition}
+        disabled={disabled}
+        buttonType={buttonType}
+        onClick={onClick}
+      />
+    </div>
   );
 };
 

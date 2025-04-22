@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Input, InputProps } from "./input";
-import { FormContext } from "#components/form/form.tsx";
-import { requiredVal } from "#utils/validations.ts";
+import { FormContext } from "../../components/form/form.tsx";
+import { requiredVal } from "../../utils/validations.ts";
 
 export interface TextFieldProps extends Omit<InputProps, "value"> {
   validation?: (value: string) => string | undefined;

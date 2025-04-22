@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
 export interface Tab {
@@ -54,36 +54,30 @@ export const Tabs: React.FC<TabsProps> = ({
         className="flex overflow-x-auto scrollbar-hide"
       >
         {tabs.map((tab, index) => (
-          <motion.li
+          <li
             key={index}
             className={`relative select-none flex-shrink-0 self-center text-md font-semibold cursor-pointer
               md:text-base text-center py-2 px-4
-              ${index === activeTab ? "text-[#498BFF]" : "text-gray-700"}
-              ${disabledTabs.includes(index) && "opacity-60 cursor-not-allowed"}`}
+              ${
+                index === activeTab
+                  ? "text-[#498BFF] bg-[#DEDEDE] dark:text-[#78AAFF] dark:bg-[#444444]"
+                  : "text-gray-700 bg-inherit dark:text-white dark:bg-inherit"
+              }
+              active:bg-[#CCC] dark:active:bg-[#666666]
+              ${disabledTabs.includes(index) && "opacity-55 cursor-not-allowed"}
+              duration-150`}
             onClick={() => handleTabClick(index)}
-            animate={{
-              backgroundColor: index === activeTab ? "#DEDEDE" : "#FFFFFF",
-              transition: { duration: 0.15 },
-            }}
-            whileHover={{
-              backgroundColor: index === activeTab ? "#DEDEDE" : "#EEEE",
-              transition: { duration: 0.15 },
-            }}
-            whileTap={{
-              backgroundColor: "#CCC",
-              transition: { duration: 0.15 },
-            }}
           >
             {index === activeTab ? (
               <motion.div
                 id="underline"
                 layoutId="underline"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#498BFF]"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#498BFF] dark:text-[#78AAFF]"
                 transition={{ duration: 0.15 }}
               />
             ) : null}
             {tab.label}
-          </motion.li>
+          </li>
         ))}
       </ul>
     </nav>

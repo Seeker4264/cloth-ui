@@ -1,12 +1,16 @@
 import React from "react";
 import { Button, ToastProvider, useToast } from "#main";
 
-const ToastExampleInner: React.FC = () => {
+export interface ToastExampleProps {
+  dark?: boolean;
+}
+
+const ToastExampleInner: React.FC<ToastExampleProps> = ({ dark }) => {
   const toast = useToast();
 
   return (
     <>
-      <div className="flex flex-col gap-2 w-48">
+      <div className={`${dark ? "dark" : ""} flex flex-col gap-2 w-48`}>
         <Button
           disabled={false}
           text={"Hello World!"}
@@ -30,10 +34,10 @@ const ToastExampleInner: React.FC = () => {
   );
 };
 
-const ToastExample: React.FC = () => {
+const ToastExample: React.FC<ToastExampleProps> = ({ dark = false }) => {
   return (
     <ToastProvider>
-      <ToastExampleInner />
+      <ToastExampleInner dark={dark} />
     </ToastProvider>
   );
 };
