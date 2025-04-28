@@ -29,35 +29,35 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const inputClasses = {
     primary: {
-      input: `peer px-4 py-3 w-full text-lg outline-none border-2 text-[#333] dark:text-white
-          ${error ? "border-red-600 dark:border-red-400" : "border-[#999]"} rounded-lg
-          bg-inherit autofill-style-remove
-          focus:border-[#498BFF]
-          disabled:bg-[#DDD]
-          duration-150`,
-      label: `absolute left-0 top-4 ml-4! ${error ? "text-red-600 dark:text-red-400" : "text-[#777] dark:text-[#AAA]"} capitalize tracking-wide pointer-events-none
-          bg-inherit
-          peer-focus:text-sm peer-focus:-translate-y-6 peer-focus:px-1 peer-focus:text-[#498BFF] dark:peer-focus:text-[#68A0FF]
-          ${value ? "text-sm -translate-y-6 px-1" : "text-base px-0"}
-          peer-disabled:bg-[#DDD]
-          duration-150`,
+      input: `cl:peer cl:px-4 cl:py-3 cl:w-full cl:text-lg cl:outline-none cl:border-2 cl:text-[#333] cl:dark:text-white
+          ${error ? "cl:border-red-600 cl:dark:border-red-400" : "cl:border-[#999]"} cl:rounded-lg
+          cl:bg-inherit cl:autofill-style-remove
+          cl:focus:border-[#498BFF]
+          cl:disabled:bg-[#DDD]
+          cl:duration-150`,
+      label: `cl:absolute cl:left-0 cl:top-4 cl:ml-4! ${error ? "cl:text-red-600 cl:dark:text-red-400" : "cl:text-[#777] cl:dark:text-[#AAA]"}
+          cl:capitalize cl:tracking-wide cl:pointer-events-none cl:bg-inherit
+          cl:peer-focus:text-sm cl:peer-focus:-translate-y-6 cl:peer-focus:px-1 cl:peer-focus:text-[#498BFF] cl:dark:peer-focus:text-[#68A0FF]
+          ${value ? "cl:text-sm cl:-translate-y-6 cl:px-1" : "cl:text-base cl:px-0"}
+          cl:peer-disabled:bg-[#DDD]
+          cl:duration-150`,
     },
     secondary: {
-      input: `peer px-4 pb-1.5 pt-[22px] w-full text-base outline-none rounded-t-lg border-2 text-[#333] dark:text-white
-          border-[#DDD] bg-[#DDD] dark:border-[#555] dark:bg-[#555] autofill-style-remove
-          disabled:bg-[#BBB] disabled:border-[#BBB]
-          duration-150`,
-      label: `absolute left-0 top-4 ml-4! ${error ? "text-red-600 dark:text-red-400" : "text-[#777] dark:text-[#AAA]"} capitalize tracking-wide pointer-events-none
-          peer-focus:text-xs peer-focus:-translate-y-2.5 peer-focus:-translate-x-1 peer-focus:px-1 peer-focus:text-[#498BFF] dark:peer-focus:text-[#68A0FF]
-          peer-disabled:text-[#555]
-          ${value ? "text-xs -translate-y-2.5 -translate-x-1 px-1" : "text-base px-0"}
-          duration-150`,
+      input: `cl:peer cl:px-4 cl:pb-1.5 cl:pt-[22px] cl:w-full cl:text-base cl:outline-none cl:rounded-t-lg cl:border-2 cl:text-[#333] cl:dark:text-white
+          cl:border-[#DDD] cl:bg-[#DDD] cl:dark:border-[#555] cl:dark:bg-[#555] cl:autofill-style-remove
+          cl:disabled:bg-[#BBB] cl:disabled:border-[#BBB]
+          cl:duration-150`,
+      label: `cl:absolute cl:left-0 cl:top-4 cl:ml-4! ${error ? "cl:text-red-600 cl:dark:text-red-400" : "cl:text-[#777] cl:dark:text-[#AAA]"} cl:capitalize cl:tracking-wide cl:pointer-events-none
+          cl:peer-focus:text-xs cl:peer-focus:-translate-y-2.5 cl:peer-focus:-translate-x-1 cl:peer-focus:px-1 cl:peer-focus:text-[#498BFF] cl:dark:peer-focus:text-[#68A0FF]
+          cl:peer-disabled:text-[#555]
+          ${value ? "cl:text-xs cl:-translate-y-2.5 cl:-translate-x-1 cl:px-1" : "cl:text-base cl:px-0"}
+          cl:duration-150`,
     },
   };
 
   return (
     <>
-      <div className="relative bg-inherit">
+      <div className="cl:relative cl:bg-inherit">
         <input
           id={id}
           required={required}
@@ -75,14 +75,16 @@ export const Input: React.FC<InputProps> = ({
         </label>
         {variant === "secondary" && (
           <div
-            className={`absolute w-full h-[2px] ${error ? "bg-red-600 dark:border-red-400" : "bg-[#777] dark:bg-[#999]"}
-            peer-focus:bg-[#498BFF] dark:peer-focus:bg-[#68A0FF]
-            peer-disabled:bg-[#555]
-            duration-500`}
+            className={`cl:absolute cl:w-full cl:h-[2px] ${error ? "cl:bg-red-600 cl:dark:border-red-400" : "cl:bg-[#777] cl:dark:bg-[#999]"}
+            cl:peer-focus:bg-[#498BFF] cl:dark:peer-focus:bg-[#68A0FF]
+            cl:peer-disabled:bg-[#555]
+            cl:duration-500`}
           />
         )}
         {error && (
-          <p className="mt-1 ml-2 text-red-600 dark:text-red-400">{error}</p>
+          <p className="cl:mt-1 cl:ml-2 cl:text-red-600 cl:dark:text-red-400">
+            {error}
+          </p>
         )}
       </div>
     </>

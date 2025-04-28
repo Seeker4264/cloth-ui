@@ -23,26 +23,26 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <>
-      <div className="flex flex-row items-center gap-2">
+      <div className="cl:flex cl:flex-row cl:items-center cl:gap-2">
         <label
           htmlFor={id}
-          className="flex items-center cursor-pointer relative p-1"
+          className="cl:flex cl:items-center cl:cursor-pointer cl:relative cl:p-1"
         >
           <input
             id={id}
             required={required}
             type="checkbox"
-            className="peer size-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border
-            border-slate-300 checked:bg-[#498BFF] checked:border-[#498BFF]"
+            className="cl:peer cl:size-5 cl:cursor-pointer cl:transition-all cl:appearance-none cl:rounded cl:shadow cl:hover:shadow-md cl:border
+            cl:border-slate-300 cl:checked:bg-[#498BFF] cl:checked:border-[#498BFF]"
             disabled={disabled}
             checked={checked}
             readOnly={readOnly}
             onChange={onChange}
             {...props}
           />
-          <span className="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <span className="cl:absolute cl:text-white cl:opacity-0 cl:peer-checked:opacity-100 cl:top-1/2 cl:left-1/2 cl:transform cl:-translate-x-1/2 cl:-translate-y-1/2 cl:pointer-events-none">
             <svg
-              className="size-3.5"
+              className="cl:size-3.5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -54,7 +54,7 @@ export const Input: React.FC<InputProps> = ({
             </svg>
           </span>
         </label>
-        <p className="text-base font-medium text-[#333] dark:text-white">
+        <p className="cl:text-base cl:font-medium cl:text-[#333] cl:dark:text-white">
           {label}
         </p>
       </div>

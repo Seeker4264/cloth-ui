@@ -49,32 +49,32 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   return (
     <ToastContext.Provider value={{ open, close }}>
       {children}
-      <div className="space-y-2 absolute overflow-hidden top-5 right-5 flex flex-col items-end">
+      <div className="cl:space-y-2 cl:absolute cl:overflow-hidden cl:top-5 cl:right-5 cl:flex cl:flex-col cl:items-end">
         <AnimatePresence>
           {toasts.map(({ id, text, type }) => {
             return (
               <motion.div
                 key={id}
                 id={id}
-                className={`flex flex-row justify-between items-stretch gap-2 z-[9999] m-2 min-w-[10rem] w-fit max-w-[24rem] min-h-[1.5rem] h-fit
-                rounded-lg border-2
-                ${type === "standard" && "border-[#3380EC] bg-[#F1F9FFCC]"}
-                ${type === "success" && "border-[#3AB37C] bg-[#F1FFF1CC]"}
-                ${type === "error" && "border-[#EC3333] bg-[#FFF1F1CC]"}`}
+                className={`cl:flex cl:flex-row cl:justify-between cl:items-stretch cl:gap-2 cl:z-[9999] cl:m-2 cl:min-w-[10rem] cl:w-fit cl:max-w-[24rem] cl:min-h-[1.5rem] cl:h-fit
+                cl:rounded-lg cl:border-2
+                ${type === "standard" && "cl:border-[#3380EC] cl:bg-[#F1F9FFCC]"}
+                ${type === "success" && "cl:border-[#3AB37C] cl:bg-[#F1FFF1CC]"}
+                ${type === "error" && "cl:border-[#EC3333] cl:bg-[#FFF1F1CC]"}`}
                 initial={animations.hidden}
                 animate={animations.visible}
                 exit={animations.exit}
               >
                 <div
-                  className={`w-fit p-3
-                  ${type === "standard" && "bg-[#3380EC]"}
-                  ${type === "success" && "bg-[#3AB37C]"}
-                  ${type === "error" && "bg-[#EC3333]"}
+                  className={`cl:w-fit cl:p-3
+                  ${type === "standard" && "cl:bg-[#3380EC]"}
+                  ${type === "success" && "cl:bg-[#3AB37C]"}
+                  ${type === "error" && "cl:bg-[#EC3333]"}
                   `}
                 >
                   {type === "standard" && (
                     <svg
-                      className="size-6 text-white"
+                      className="cl:size-6 cl:text-white"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -89,7 +89,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
                   )}
                   {type === "success" && (
                     <svg
-                      className="size-6 text-white"
+                      className="cl:size-6 cl:text-white"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -103,7 +103,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
                   )}
                   {type === "error" && (
                     <svg
-                      className="size-6 text-white"
+                      className="cl:size-6 cl:text-white"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -121,27 +121,27 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
                   )}
                 </div>
                 <span
-                  className={`font-medium p-3
-                  ${type === "standard" && "text-[#666]"}
-                  ${type === "success" && "text-[#00c113]"}
-                  ${type === "error" && "text-[#EC3333]"}`}
+                  className={`cl:font-medium cl:p-3
+                  ${type === "standard" && "cl:text-[#666]"}
+                  ${type === "success" && "cl:text-[#00c113]"}
+                  ${type === "error" && "cl:text-[#EC3333]"}`}
                 >
                   {text}
                 </span>
                 <button
-                  className={`group p-1 size-fit rounded-full cursor-pointer m-3
-                  ${type === "standard" && "hover:bg-[#D4E3FF] active:bg-[#AECAFF]"}
-                  ${type === "success" && "hover:bg-[#D5FFEC] active:bg-[#AFFFDB]"}
-                  ${type === "error" && "hover:bg-[#FFD4D4] active:bg-[#FFAEAE]"}
-                  duration-150`}
+                  className={`cl:group cl:p-1 cl:size-fit cl:rounded-full cl:cursor-pointer cl:m-3
+                  ${type === "standard" && "cl:hover:bg-[#D4E3FF] cl:active:bg-[#AECAFF]"}
+                  ${type === "success" && "cl:hover:bg-[#D5FFEC] cl:active:bg-[#AFFFDB]"}
+                  ${type === "error" && "cl:hover:bg-[#FFD4D4] cl:active:bg-[#FFAEAE]"}
+                  cl:duration-150`}
                   onClick={() => close(id)}
                 >
                   <svg
-                    className={`size-5
-                    ${type === "standard" && "text-[#112F5D] group-hover:text-[#003EAA]"}
-                    ${type === "success" && "text-[#115D3B] group-hover:text-[#00894b]"}
-                    ${type === "error" && "text-[#5E1313] group-hover:text-[#AA0000]"}
-                    duration-150`}
+                    className={`cl:size-5
+                    ${type === "standard" && "cl:text-[#112F5D] cl:group-hover:text-[#003EAA]"}
+                    ${type === "success" && "cl:text-[#115D3B] cl:group-hover:text-[#00894b]"}
+                    ${type === "error" && "cl:text-[#5E1313] cl:group-hover:text-[#AA0000]"}
+                    cl:duration-150`}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

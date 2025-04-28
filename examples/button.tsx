@@ -24,7 +24,7 @@ const ButtonExample: React.FC<ButtonExampleProps> = ({
 }) => {
   const iconExample = icon ? (
     <svg
-      className="size-5"
+      className="cl:size-5"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

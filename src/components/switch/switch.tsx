@@ -20,7 +20,7 @@ export const Switch: React.FC<SwitchProps> = ({
       <input
         id={id}
         type="checkbox"
-        className="group peer w-0 h-0 hidden"
+        className="cl:group cl:peer cl:w-0 cl:h-0 cl:hidden"
         disabled={disabled}
         checked={checked}
         onChange={onChange}
@@ -28,18 +28,18 @@ export const Switch: React.FC<SwitchProps> = ({
       />
       <label
         htmlFor={id}
-        className={`flex items-center cursor-pointer w-12 h-fit p-1 rounded-full peer-disabled:cursor-default
+        className={`cl:flex cl:items-center cl:cursor-pointer cl:w-12 cl:h-fit cl:p-1 cl:rounded-full cl:peer-disabled:cursor-default
         ${
           checked
-            ? "bg-[#2d9ce6] peer-hover:bg-[#47aaeb] peer-disabled:bg-[#7CA2BC] dark:bg-[#459CFF] dark:peer-hover:bg-[#62a9fa] dark:peer-disabled:bg-[#6595CB]"
-            : "bg-[#888888] peer-hover:bg-[#999999] peer-disabled:bg-[#555] dark:bg-[#555555] dark:peer-hover:bg-[#777777] dark:peer-disabled:bg-[#222]"
+            ? "cl:bg-[#2d9ce6] cl:peer-hover:bg-[#47aaeb] cl:peer-disabled:bg-[#7CA2BC] cl:dark:bg-[#459CFF] cl:dark:peer-hover:bg-[#62a9fa] cl:dark:peer-disabled:bg-[#6595CB]"
+            : "cl:bg-[#888888] cl:peer-hover:bg-[#999999] cl:peer-disabled:bg-[#555] cl:dark:bg-[#555555] cl:dark:peer-hover:bg-[#777777] cl:dark:peer-disabled:bg-[#222]"
         }
-        duration-150`}
+        cl:duration-150`}
       >
         <span
-          className={`size-5 rounded-full bg-white group-active:bg-[#EEEEEE]
-          ${checked ? "translate-x-full" : "translate-0"}
-          duration-150 ease-out`}
+          className={`cl:size-5 cl:rounded-full cl:bg-white cl:group-active:bg-[#EEEEEE]
+          ${checked ? "cl:translate-x-full" : "cl:translate-0"}
+          cl:duration-150 cl:ease-out`}
         />
       </label>
     </>

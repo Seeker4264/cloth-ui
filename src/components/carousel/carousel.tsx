@@ -68,13 +68,13 @@ export const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg">
+    <div className="cl:relative cl:overflow-hidden cl:rounded-lg">
       <div
-        className="flex transition-transform duration-700 ease-in-out"
+        className="cl:flex cl:transition-transform cl:duration-700 cl:ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="w-full flex-shrink-0">
+          <div key={index} className="cl:w-full cl:flex-shrink-0">
             {slide}
           </div>
         ))}
@@ -83,14 +83,14 @@ export const Carousel: React.FC<CarouselProps> = ({
       <button
         ref={lButtonRef}
         onClick={() => createRipple(lButtonRef, prevSlide)}
-        className="absolute overflow-hidden left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
-        hover:bg-black/50 focus:outline-none
-        active:bg-black/70
-        duration-150"
+        className="cl:absolute cl:overflow-hidden cl:left-2 cl:top-1/2 cl:-translate-y-1/2 cl:bg-black/30 cl:text-white cl:p-2 cl:rounded-full cl:cursor-pointer
+        cl:hover:bg-black/50 cl:focus:outline-none
+        cl:active:bg-black/70
+        cl:duration-150"
         aria-label="Previous slide"
       >
         <svg
-          className="relative z-20 size-6 text-white"
+          className="cl:relative cl:z-20 cl:size-6 cl:text-white"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -104,14 +104,14 @@ export const Carousel: React.FC<CarouselProps> = ({
       <button
         ref={rButtonRef}
         onClick={() => createRipple(rButtonRef, nextSlide)}
-        className="absolute overflow-hidden right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full cursor-pointer
-        hover:bg-black/50 focus:outline-none
-        active:bg-black/70
-        duration-150"
+        className="cl:absolute cl:overflow-hidden cl:right-2 cl:top-1/2 cl:-translate-y-1/2 cl:bg-black/30 cl:text-white cl:p-2 cl:rounded-full cl:cursor-pointer
+        cl:hover:bg-black/50 cl:focus:outline-none
+        cl:active:bg-black/70
+        cl:duration-150"
         aria-label="Next slide"
       >
         <svg
-          className="relative z-20 size-6 text-white"
+          className="cl:relative cl:z-20 cl:size-6 cl:text-white"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -123,14 +123,14 @@ export const Carousel: React.FC<CarouselProps> = ({
         </svg>
       </button>
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-3">
+      <div className="cl:absolute cl:bottom-4 cl:left-1/2 cl:-translate-x-1/2 cl:flex cl:space-x-3">
         {slides.map((_: unknown, index: number) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`size-3 rounded-full cursor-pointer 
-            ${currentSlide === index ? "bg-white scale-125" : "bg-white/50"}
-            duration-150`}
+            className={`cl:size-3 cl:rounded-full cl:cursor-pointer 
+            ${currentSlide === index ? "cl:bg-white cl:scale-125" : "cl:bg-white/50"}
+            cl:duration-150`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

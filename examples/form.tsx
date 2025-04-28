@@ -27,7 +27,7 @@ const FormExample: React.FC<FormExampleProps> = ({ id, dark = false }) => {
   return (
     <Form
       id={id}
-      className={`${dark ? "dark" : ""} flex flex-col gap-4 w-[20rem] p-5 bg-white dark:bg-[#333]`}
+      className={`${dark ? "dark" : ""} cl:flex cl:flex-col cl:gap-4 cl:w-[20rem] cl:p-5 cl:bg-white cl:dark:bg-[#333]`}
       submit={handleSubmit}
     >
       <TextField id="username" required variant="primary" label="Username" />
