@@ -23,7 +23,7 @@ const SwitchExample: React.FC<SwitchExampleProps> = ({
   return (
     <>
       <form
-        className={`flex flex-col gap-4 w-fit ${dark ? "dark" : ""}`}
+        className={`cl:flex cl:flex-col cl:gap-4 cl:w-fit ${dark ? "dark" : ""}`}
         onSubmit={handleSubmit}
       >
         <Switch

@@ -48,31 +48,31 @@ export const Tabs: React.FC<TabsProps> = ({
   }, [activeTab]);
 
   return (
-    <nav className="relative w-fit overflow-hidden transition-all duration-150">
+    <nav className="cl:relative cl:w-fit cl:overflow-hidden cl:transition-all cl:duration-150">
       <ul
         ref={tabsContainerRef}
-        className="flex overflow-x-auto scrollbar-hide"
+        className="cl:flex cl:overflow-x-auto cl:scrollbar-hide"
       >
         {tabs.map((tab, index) => (
           <li
             key={index}
-            className={`relative select-none flex-shrink-0 self-center text-md font-semibold cursor-pointer
-              md:text-base text-center py-2 px-4
+            className={`cl:relative cl:select-none cl:flex-shrink-0 cl:self-center cl:text-md cl:font-semibold cl:cursor-pointer
+              cl:md:text-base cl:text-center cl:py-2 cl:px-4
               ${
                 index === activeTab
-                  ? "text-[#498BFF] bg-[#DEDEDE] dark:text-[#78AAFF] dark:bg-[#444444]"
-                  : "text-gray-700 bg-inherit dark:text-white dark:bg-inherit"
+                  ? "cl:text-[#498BFF] cl:bg-[#DEDEDE] cl:dark:text-[#78AAFF] cl:dark:bg-[#444444]"
+                  : "cl:text-gray-700 cl:bg-inherit cl:dark:text-white cl:dark:bg-inherit"
               }
-              active:bg-[#CCC] dark:active:bg-[#666666]
-              ${disabledTabs.includes(index) && "opacity-55 cursor-not-allowed"}
-              duration-150`}
+              cl:active:bg-[#CCC] cl:dark:active:bg-[#666666]
+              ${disabledTabs.includes(index) && "cl:opacity-55 cl:cursor-not-allowed"}
+              cl:duration-150`}
             onClick={() => handleTabClick(index)}
           >
             {index === activeTab ? (
               <motion.div
                 id="underline"
                 layoutId="underline"
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#498BFF] dark:text-[#78AAFF]"
+                className="cl:absolute cl:bottom-0 cl:left-0 cl:right-0 cl:h-0.5 cl:bg-[#498BFF] cl:dark:text-[#78AAFF]"
                 transition={{ duration: 0.15 }}
               />
             ) : null}

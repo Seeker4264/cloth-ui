@@ -10,7 +10,9 @@ const ToastExampleInner: React.FC<ToastExampleProps> = ({ dark }) => {
 
   return (
     <>
-      <div className={`${dark ? "dark" : ""} flex flex-col gap-2 w-48`}>
+      <div
+        className={`${dark ? "dark" : ""} cl:flex cl:flex-col cl:gap-2 cl:w-48`}
+      >
         <Button
           disabled={false}
           text={"Hello World!"}

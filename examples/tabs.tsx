@@ -21,11 +21,17 @@ const TabsExample: React.FC<TabsExampleProps> = ({
   const renderContent = () => {
     switch (filter) {
       case "tab1":
-        return <div className="text-[#333] dark:text-white">Tab example 1</div>;
+        return (
+          <div className="cl:text-[#333] cl:dark:text-white">Tab example 1</div>
+        );
       case "tab2":
-        return <div className="text-[#333] dark:text-white">Tab example 2</div>;
+        return (
+          <div className="cl:text-[#333] cl:dark:text-white">Tab example 2</div>
+        );
       case "tab3":
-        return <div className="text-[#333] dark:text-white">Tab example 3</div>;
+        return (
+          <div className="cl:text-[#333] cl:dark:text-white">Tab example 3</div>
+        );
       default:
         return null;
     }
@@ -34,7 +40,7 @@ const TabsExample: React.FC<TabsExampleProps> = ({
   return (
     <>
       <div
-        className={`${dark ? "dark" : ""} flex flex-col gap-2 w-fit bg-white dark:bg-[#333]`}
+        className={`${dark ? "dark" : ""} cl:flex cl:flex-col cl:gap-2 cl:w-fit cl:bg-white cl:dark:bg-[#333]`}
       >
         <Tabs
           tabs={dataColumns}

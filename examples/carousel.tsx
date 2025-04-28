@@ -13,13 +13,13 @@ const CarouselExample: React.FC<CarouselExampleProps> = ({
   return (
     <div className="mx-24">
       <Carousel autoSlide={autoSlide} autoSlideInterval={autoSlideInterval}>
-        <div className="h-96 bg-[#3380EC] flex items-center justify-center text-white text-2xl font-medium">
+        <div className="cl:h-96 cl:bg-[#3380EC] cl:flex cl:items-center cl:justify-center cl:text-white cl:text-2xl cl:font-medium">
           Slide 1
         </div>
-        <div className="h-96 bg-[#3AB37C] flex items-center justify-center text-white text-2xl font-medium">
+        <div className="cl:h-96 cl:bg-[#3AB37C] cl:flex cl:items-center cl:justify-center cl:text-white cl:text-2xl cl:font-medium">
           Slide 2
         </div>
-        <div className="h-96 bg-[#EC3333] flex items-center justify-center text-white text-2xl font-medium">
+        <div className="cl:h-96 cl:bg-[#EC3333] cl:flex cl:items-center cl:justify-center cl:text-white cl:text-2xl cl:font-medium">
           Slide 3
         </div>
       </Carousel>
