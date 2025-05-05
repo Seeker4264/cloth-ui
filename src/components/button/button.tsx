@@ -25,10 +25,10 @@ export const Button: React.FC<ButtonProps> = ({
 
   const buttonClass = {
     primary: `cl:relative cl:overflow-hidden cl:px-[1.25rem] cl:py-1.5 cl:text-lg cl:font-medium cl:rounded-lg cl:cursor-pointer
-      cl:bg-white cl:dark:bg-transparent cl:border-2 cl:border-[#2C6DE0] cl:text-[#2C6DE0] cl:dark:border-[#68A0FF] cl:dark:text-[#68A0FF]
-      cl:hover:border-[#498BFF] cl:hover:text-[#498BFF] cl:dark:hover:border-[#86B3FF] cl:dark:hover:text-[#86B3FF] cl:hover:bg-[#E7EEFF] cl:dark:hover:bg-[#1756C444]
-      cl:active:border-[#144DB1] cl:active:text-[#144DB1] cl:active:bg-[#D5E4FF] cl:dark:active:border-[#1F5ECB] cl:dark:active:text-[#1F5ECB]
-      cl:disabled:border-[#707070] cl:disabled:bg-[#F0F0F0] cl:disabled:text-[#707070] cl:dark:disabled:bg-transparent
+      cl:bg-transparent cl:border-2 cl:border-[#2C6DE0] cl:text-[#2C6DE0] cl:dark:border-[#68A0FF] cl:dark:text-[#68A0FF]
+      cl:hover:border-[#498BFF] cl:hover:text-[#498BFF] cl:dark:hover:border-[#86B3FF] cl:dark:hover:text-[#86B3FF] cl:hover:bg-[#3466BC44] cl:dark:hover:bg-[#1756C444]
+      cl:active:border-[#144DB1] cl:active:text-[#144DB1] cl:dark:active:border-[#1F5ECB] cl:dark:active:text-[#1F5ECB]
+      cl:disabled:bg-transparent cl:disabled:border-[#707070] cl:disabled:text-[#707070] cl:dark:disabled:bg-transparent cl:dark:disabled:border-[#707070] cl:dark:disabled:text-[#707070]
       cl:duration-150`,
     secondary: `cl:relative cl:overflow-hidden cl:px-[1.375rem] cl:py-2 cl:text-lg cl:font-medium cl:rounded-lg cl:cursor-pointer
       cl:bg-[#447FE4] cl:text-white
@@ -45,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const iconClass = {
-    primary: `cl:text-[#2C6DE0] cl:group-hover:text-[#498BFF] cl:group-active:text-[#144DB1] cl:group-disabled:text-[#707070]
+    primary: `cl:text-[#2C6DE0] cl:group-hover:text-[#498BFF] cl:group-active:text-[#144DB1] cl:group-disabled:text-[#707070] cl:dark:group-disabled:text-[#707070]
     cl:dark:text-[#68A0FF] cl:dark:group-hover:text-[#86B3FF] cl:dark:group-active:text-[#1F5ECB]`,
     secondary: `cl:text-white cl:group-disabled:text-[#CCCCCC]`,
     secondaryAlt: `cl:text-[#003EAA] cl:group-disabled:text-[#CCCCCC]`,

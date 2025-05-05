@@ -49,7 +49,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   return (
     <ToastContext.Provider value={{ open, close }}>
       {children}
-      <div className="cl:space-y-2 cl:absolute cl:overflow-hidden cl:top-5 cl:right-5 cl:flex cl:flex-col cl:items-end">
+      <div className="cl:space-y-2 cl:fixed cl:overflow-hidden cl:top-5 cl:right-5 cl:flex cl:flex-col cl:items-end">
         <AnimatePresence>
           {toasts.map(({ id, text, type }) => {
             return (
