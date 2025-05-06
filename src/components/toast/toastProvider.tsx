@@ -49,14 +49,14 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   return (
     <ToastContext.Provider value={{ open, close }}>
       {children}
-      <div className="cl:space-y-2 cl:fixed cl:overflow-hidden cl:top-5 cl:right-5 cl:flex cl:flex-col cl:items-end">
+      <div className="cl:space-y-2 cl:fixed cl:overflow-hidden cl:top-5 cl:right-5 cl:flex cl:flex-col cl:items-end cl:z-[99999]">
         <AnimatePresence>
           {toasts.map(({ id, text, type }) => {
             return (
               <motion.div
                 key={id}
                 id={id}
-                className={`cl:flex cl:flex-row cl:justify-between cl:items-stretch cl:gap-2 cl:z-[9999] cl:m-2 cl:min-w-[10rem] cl:w-fit cl:max-w-[24rem] cl:min-h-[1.5rem] cl:h-fit
+                className={`cl:flex cl:flex-row cl:justify-between cl:items-stretch cl:gap-2 cl:z-[99999] cl:m-2 cl:min-w-[10rem] cl:w-fit cl:max-w-[24rem] cl:min-h-[1.5rem] cl:h-fit
                 cl:rounded-lg cl:border-2
                 ${type === "standard" && "cl:border-[#3380EC] cl:bg-[#F1F9FFCC]"}
                 ${type === "success" && "cl:border-[#3AB37C] cl:bg-[#F1FFF1CC]"}
