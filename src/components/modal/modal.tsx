@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./../../styles.css";
 
@@ -36,14 +36,6 @@ export const Modal: React.FC<ModalProps> = ({
       exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } },
     },
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isOpen]);
 
   const stopPropagation = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
