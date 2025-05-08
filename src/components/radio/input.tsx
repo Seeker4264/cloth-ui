@@ -37,9 +37,12 @@ export const Input: React.FC<InputProps> = ({
             required={required}
             type="radio"
             className="cl:peer cl:size-4 cl:cursor-pointer cl:transition-all cl:appearance-none cl:rounded-full cl:shadow cl:hover:shadow-md cl:border
-            cl:border-slate-300 cl:checked:bg-[#498BFF] cl:checked:border-[#498BFF]
+            cl:border-[#DDDDDD] cl:checked:bg-[#498BFF] cl:checked:border-[#498BFF]
+            cl:disabled:bg-[#E0E0E0] cl:disabled:border-[#CCC] cl:disabled:checked:bg-[#498BFF55] cl:disabled:checked:border-[#498BFF88]
+            cl:dark:disabled:bg-[#222222] cl:dark:disabled:border-[#777777] cl:dark:disabled:checked:bg-[#498BFF55] cl:dark:disabled:checked:border-[#498BFF88]
             cl:checked:ring-blue-500 cl:checked:ring-2 cl:checked:ring-offset-2
-            cl:focus:ring-blue-500 cl:focus:ring-2 cl:focus:ring-offset-2"
+            cl:focus:ring-blue-500 cl:focus:ring-2 cl:focus:ring-offset-2
+            cl:duration-150"
             disabled={disabled}
             value={value}
             name={name}
@@ -49,7 +52,7 @@ export const Input: React.FC<InputProps> = ({
             {...props}
           />
         </label>
-        <p className="cl:text-base cl:font-medium cl:text-[#333] cl:dark:text-white">
+        <p className="cl:text-base cl:font-medium cl:text-[#333] cl:dark:text-white cl:duration-150">
           {label}
         </p>
       </div>
