@@ -1,7 +1,7 @@
 {
   "name": "cloth-ui",
   "private": false,
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "React library that implements various types of components, with custom parameters and styles.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -25,6 +25,7 @@
     "type": "git",
     "url": "git@github.com:Seeker4264/cloth-ui.git"
   },
+  "homepage": "https://cloth-ui-docs.vercel.app/",
   "imports": {
     "#components/*": "./src/components/*",
     "#utils/*": "./src/utils/*",
